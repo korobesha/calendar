@@ -21,7 +21,7 @@ export default {
   },
   data: () => ({
     currentDate: moment().format('DD.MM.YYYY'),
-    currentYear: moment("2023", "YYYY").format('YYYY'),
+    currentYear: new Date().getCurrentYear(),
   }),
 }
 </script>
