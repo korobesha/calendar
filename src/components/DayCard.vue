@@ -11,16 +11,6 @@ export default {
     day: Number,
     isItWeekEnd: Boolean,
   },
-  components: {
-  },
-  data: () => ({
-  }),
-  computed: {
-  },
-  created() {
-  },
-  method: {
-  }
 }
 </script>
  

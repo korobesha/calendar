@@ -1,10 +1,10 @@
 <template>
   <div class="month-card">
-    <div class="wrapper">
+    <div class="month-card-wrapper">
       <div class="month-card-header">
         {{ nameOfMonth }}
       </div>
-      <div class='month-card-wrapper'>
+      <div class='week-day-wrapper'>
         <div class="week-day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
           {{ weekDay }}
         </div>
@@ -52,9 +52,7 @@ export default {
   },
   computed: {
     displayWeekDays() {
-      return this.weekDays.map((day) => {
-        return day.slice(0, 2)
-      });
+      return this.weekDays.map((day) => day.slice(0, 2));
     },
     numberOfDays() {
       return this.firstDayMoment.daysInMonth();
@@ -113,7 +111,7 @@ export default {
   font-size: 13px;
 }
 
-.month-card-wrapper {
+.week-day-wrapper {
   display: flex;
   width: 168px;
   flex-wrap: wrap;

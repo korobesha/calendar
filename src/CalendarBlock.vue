@@ -14,8 +14,6 @@ import CalendarYear from '@/components/CalendarYear.vue';
 
 export default {
   name: 'CalendarBlock',
-  props: {
-  },
   components: {
     CalendarYear,
   },
