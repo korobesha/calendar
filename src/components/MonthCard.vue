@@ -2,10 +2,10 @@
   <div class="month-card">
     <div class="wrapper">
       <div class="month-card-header">
-        {{ nameOfMonth }}
+        {{nameOfMonth}}
       </div>
       <div class='month-card-wrapper'>
-        <div class="week-day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
+        <div class="week-day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`" >
           {{ weekDay }}
         </div>
         <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
