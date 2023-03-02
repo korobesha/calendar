@@ -102,7 +102,6 @@ export default {
   font-weight: 300;
 }
 
-
 .week-day {
   display: flex;
   flex-wrap: wrap;
@@ -125,7 +124,6 @@ export default {
 }
 
 .day {
-
   display: flex;
   flex-wrap: wrap;
   width: 24px;
@@ -134,6 +132,4 @@ export default {
   align-content: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-
-}
-</style>
+}</style>

@@ -30,9 +30,4 @@ export default {
   flex-wrap: wrap;
   width: 100%;
 }
-
-#app {
-  margin: 0;
-  padding: 0;
-}
 </style>

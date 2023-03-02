@@ -16,12 +16,9 @@ export default {
   data: () => ({
   }),
   computed: {
-
   },
   created() {
-
   },
-
   method: {
   }
 }
