@@ -1,5 +1,5 @@
 <template>
-  <div class="week-day">
+  <div :class="{ 'weekend-day': isItWeekEnd }">
     {{ day }}
   </div>
 </template>
@@ -9,19 +9,26 @@ export default {
   name: 'DayCard',
   props: {
     day: Number,
+    isItWeekEnd: Boolean,
   },
   components: {
   },
   data: () => ({
-
-
   }),
   computed: {
-  },
-  mounted() {
 
+  },
+  created() {
+
+  },
+
+  method: {
   }
 }
 </script>
-
-<style></style>
+ 
+<style>
+.weekend-day {
+  color: #A00;
+}
+</style>

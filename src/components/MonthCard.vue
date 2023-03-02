@@ -8,12 +8,13 @@
         <div class="week-day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
           {{ weekDay }}
         </div>
-        <div class="week-day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
+        <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
           {{ getDayByIndex(emptyDays - i) }}
         </div>
-        <DayCard v-for="day in numberOfDays" :key="day" :day="day" />
-        <div class="week-day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
-          {{ getLastDayByIndex(i + 1) }}</div>
+        <DayCard v-for="day in numberOfDays" :key="day" :day="day" class="day" :is-it-week-end="checkIsWeekEnd(day)" />
+        <div class="day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
+          {{ getLastDayByIndex(i + 1) }}
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +44,11 @@ export default {
     getLastDayByIndex(i) {
       return moment(this.lastDayOfMonth, 'DD-MM-YYYY').add(i, 'days').format('D');
     },
+    checkIsWeekEnd(day) {
+      const currentDay = moment(`${day}-${this.month}-${this.currentYear}`, 'DD-MM-YYYY').day();
+      const isWeekEnd = currentDay === 0 || currentDay === 6;
+      return isWeekEnd;
+    },
   },
   computed: {
     displayWeekDays() {
@@ -67,22 +73,21 @@ export default {
       return `${this.numberOfDays}-${this.month}-${this.currentYear}`;
     },
     lastDayOfMonthWeekDay() {
-      const lastWeekDay = this.lastDayMoment.day();//2
+      const lastWeekDay = this.lastDayMoment.day();
       return lastWeekDay ? lastWeekDay : 7
     },
     emptyLastDays() {
-      return 7 - this.lastDayOfMonthWeekDay;//5
+      return 7 - this.lastDayOfMonthWeekDay;
     },
   },
   created() {
     this.nameOfMonth = moment(this.month, 'MM').format('MMMM');
     this.firstDayMoment = moment(this.firstDayOfMonth, 'DD-MM-YYYY');
     this.lastDayMoment = moment(this.lastDayOfMonth, 'DD-MM-YYYY');
-  }
+  },
 }
+
 </script>
-moment().add(7, 'days');
-moment().day()
 <style>
 .month-card {
   display: block;
@@ -106,7 +111,7 @@ moment().day()
   justify-content: center;
   align-content: center;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .month-card-wrapper {
@@ -117,5 +122,18 @@ moment().day()
 
 .empty-day {
   color: #AAA;
+}
+
+.day {
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+
 }
 </style>
