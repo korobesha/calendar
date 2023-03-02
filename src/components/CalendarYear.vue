@@ -11,8 +11,8 @@ export default {
   name: 'CalendarYear',
   props: {
     currentYear: {
-      type: String,
-      default: String(new Date().getFullYear()) // 2023
+      type: Number,
+      default: new Date().getFullYear(),
     }
   },
   components: {
@@ -29,10 +29,5 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-}
-
-#app {
-  margin: 0;
-  padding: 0;
 }
 </style>

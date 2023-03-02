@@ -1,19 +1,18 @@
 <template>
   <div class="month-card">
-    <div class="wrapper">
-      <div class="month-card-header">
-        {{ nameOfMonth }}
+    <div class="month-card-header">
+      {{ nameOfMonth }}
+    </div>
+    <div class='month-card-days'>
+      <div class="day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
+        {{ weekDay }}
       </div>
-      <div class='month-card-wrapper'>
-        <div class="week-day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
-          {{ weekDay }}
-        </div>
-        <div class="week-day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
-          {{ getDayByIndex(emptyDays - i) }}
-        </div>
-        <DayCard v-for="day in numberOfDays" :key="day" :day="day" />
-        <div class="week-day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
-          {{ getLastDayByIndex(i + 1) }}</div>
+      <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
+        {{ getDayByIndex(emptyDays - i) }}
+      </div>
+      <DayCard v-for="day in numberOfDays" :key="day" :day="day" class="day" :is-it-week-end="checkIsWeekEnd(day)" />
+      <div class="day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
+        {{ getLastDayByIndex(i + 1) }}
       </div>
     </div>
   </div>
@@ -26,29 +25,17 @@ export default {
   name: 'MonthCard',
   props: {
     month: Number,
-    currentYear: String,
+    currentYear: Number,
   },
   components: {
     DayCard
   },
   data: () => ({
-    nameOfMonth: '',
-    firstDayMoment: '',
     weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
   }),
-  methods: {
-    getDayByIndex(i) {
-      return moment(this.firstDayOfMonth, 'DD-MM-YYYY').subtract(i, 'days').format('D');
-    },
-    getLastDayByIndex(i) {
-      return moment(this.lastDayOfMonth, 'DD-MM-YYYY').add(i, 'days').format('D');
-    },
-  },
   computed: {
     displayWeekDays() {
-      return this.weekDays.map((day) => {
-        return day.slice(0, 2)
-      });
+      return this.weekDays.map((day) => day.slice(0, 2));
     },
     numberOfDays() {
       return this.firstDayMoment.daysInMonth();
@@ -67,22 +54,37 @@ export default {
       return `${this.numberOfDays}-${this.month}-${this.currentYear}`;
     },
     lastDayOfMonthWeekDay() {
-      const lastWeekDay = this.lastDayMoment.day();//2
+      const lastWeekDay = this.lastDayMoment.day();
       return lastWeekDay ? lastWeekDay : 7
     },
     emptyLastDays() {
-      return 7 - this.lastDayOfMonthWeekDay;//5
+      return 7 - this.lastDayOfMonthWeekDay;
+    },
+    firstDayMoment() {
+      return moment(this.firstDayOfMonth, 'DD-MM-YYYY');
+    },
+    lastDayMoment() {
+      return moment(this.lastDayOfMonth, 'DD-MM-YYYY');
+    },
+    nameOfMonth() {
+      return moment(this.month, 'MM').format('MMMM');
+    }
+  },
+  methods: {
+    getDayByIndex(i) {
+      return moment(this.firstDayOfMonth, 'DD-MM-YYYY').subtract(i, 'days').format('D');
+    },
+    getLastDayByIndex(i) {
+      return moment(this.lastDayOfMonth, 'DD-MM-YYYY').add(i, 'days').format('D');
+    },
+    checkIsWeekEnd(day) {
+      const currentDay = moment(`${day}-${this.month}-${this.currentYear}`, 'DD-MM-YYYY').day();
+      const isWeekEnd = currentDay === 0 || currentDay === 6;
+      return isWeekEnd;
     },
   },
-  created() {
-    this.nameOfMonth = moment(this.month, 'MM').format('MMMM');
-    this.firstDayMoment = moment(this.firstDayOfMonth, 'DD-MM-YYYY');
-    this.lastDayMoment = moment(this.lastDayOfMonth, 'DD-MM-YYYY');
-  }
 }
 </script>
-moment().add(7, 'days');
-moment().day()
 <style>
 .month-card {
   display: block;
@@ -97,8 +99,17 @@ moment().day()
   font-weight: 300;
 }
 
+.month-card-days {
+  display: flex;
+  width: 168px;
+  flex-wrap: wrap;
+}
 
-.week-day {
+.empty-day {
+  color: #AAA;
+}
+
+.day {
   display: flex;
   flex-wrap: wrap;
   width: 24px;
@@ -107,15 +118,5 @@ moment().day()
   align-content: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-}
-
-.month-card-wrapper {
-  display: flex;
-  width: 168px;
-  flex-wrap: wrap;
-}
-
-.empty-day {
-  color: #AAA;
 }
 </style>

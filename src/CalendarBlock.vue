@@ -8,20 +8,17 @@
 </template>
 
 <script>
-
 import moment from 'moment';
 import CalendarYear from '@/components/CalendarYear.vue';
 
 export default {
   name: 'CalendarBlock',
-  props: {
-  },
   components: {
     CalendarYear,
   },
   data: () => ({
     currentDate: moment().format('DD.MM.YYYY'),
-    currentYear: new Date().getCurrentYear(),
+    currentYear: new Date().getFullYear(),
   }),
 }
 </script>
