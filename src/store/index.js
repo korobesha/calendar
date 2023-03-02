@@ -12,11 +12,7 @@ const store = new Vuex.Store({
       state.currentProjectYear = year;
     },
   },
-  getters: { 
-
-  },
-  actions: { 
-    
-  },
+  getters: {},
+  actions: {},
 });
 export default store;

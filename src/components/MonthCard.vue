@@ -5,7 +5,7 @@
         {{nameOfMonth}}
       </div>
       <div class='month-card-wrapper'>
-        <div class="week-day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`" >
+        <div class="day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`" >
           {{ weekDay }}
         </div>
         <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
@@ -27,7 +27,7 @@ export default {
   name: 'MonthCard',
   props: {
     month: Number,
-    currentYear: String,
+    currentYear: Number,
   },
   components: {
     DayCard
@@ -52,9 +52,8 @@ export default {
   },
   computed: {
     displayWeekDays() {
-      return this.weekDays.map((day) => {
-        return day.slice(0, 2)
-      });
+      return this.weekDays.map((day) => day.slice(0, 2)
+      );
     },
     numberOfDays() {
       return this.firstDayMoment.daysInMonth();
@@ -100,17 +99,6 @@ export default {
   width: 168px;
   height: 30px;
   font-weight: 300;
-}
-
-.week-day {
-  display: flex;
-  flex-wrap: wrap;
-  width: 24px;
-  height: 24px;
-  justify-content: center;
-  align-content: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 13px;
 }
 
 .month-card-wrapper {

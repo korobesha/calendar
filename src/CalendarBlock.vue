@@ -1,28 +1,37 @@
 <template>
   <div class="calendar-block">
     <div class="calendar-block-header">
-      Сегодня {{ currentDate }}
+      Сегодня {{ currentProjectYear }} год
     </div>
     <CalendarYear :current-year="currentYear" />
   </div>
 </template>
 
 <script>
-
 import moment from 'moment';
 import CalendarYear from '@/components/CalendarYear.vue';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'CalendarBlock',
-  props: {
-  },
   components: {
     CalendarYear,
   },
   data: () => ({
     currentDate: moment().format('DD.MM.YYYY'),
-    currentYear: new Date().getCurrentYear(),
+    currentYear: new Date().getFullYear(),
   }),
+  computed: {
+    ...mapState(['currentProjectYear'])
+  },
+  mounted() {
+    this.setCurrentProjectYear(new Date().getFullYear())
+  },
+  methods: {
+    ...mapMutations({
+      setCurrentProjectYear: 'SET_CURRENT_YEAR'
+    }),
+  },
 }
 </script>
 
