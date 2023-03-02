@@ -3,8 +3,8 @@
     {{ day }}
   </div>
 </template>
-<script>
 
+<script>
 export default {
   name: 'DayCard',
   props: {
