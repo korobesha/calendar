@@ -1,20 +1,18 @@
 <template>
   <div class="month-card">
-    <div class="wrapper">
-      <div class="month-card-header">
-        {{nameOfMonth}}
+    <div class="month-card-header">
+      {{ nameOfMonth }}
+    </div>
+    <div class='month-card-days'>
+      <div class="day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
+        {{ weekDay }}
       </div>
-      <div class='month-card-wrapper'>
-        <div class="day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`" >
-          {{ weekDay }}
-        </div>
-        <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
-          {{ getDayByIndex(emptyDays - i) }}
-        </div>
-        <DayCard v-for="day in numberOfDays" :key="day" :day="day" class="day" :is-it-week-end="checkIsWeekEnd(day)" />
-        <div class="day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
-          {{ getLastDayByIndex(i + 1) }}
-        </div>
+      <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
+        {{ getDayByIndex(emptyDays - i) }}
+      </div>
+      <DayCard v-for="day in numberOfDays" :key="day" :day="day" class="day" :is-it-week-end="checkIsWeekEnd(day)" />
+      <div class="day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
+        {{ getLastDayByIndex(i + 1) }}
       </div>
     </div>
   </div>
@@ -33,27 +31,11 @@ export default {
     DayCard
   },
   data: () => ({
-    nameOfMonth: '',
-    firstDayMoment: '',
     weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
   }),
-  methods: {
-    getDayByIndex(i) {
-      return moment(this.firstDayOfMonth, 'DD-MM-YYYY').subtract(i, 'days').format('D');
-    },
-    getLastDayByIndex(i) {
-      return moment(this.lastDayOfMonth, 'DD-MM-YYYY').add(i, 'days').format('D');
-    },
-    checkIsWeekEnd(day) {
-      const currentDay = moment(`${day}-${this.month}-${this.currentYear}`, 'DD-MM-YYYY').day();
-      const isWeekEnd = currentDay === 0 || currentDay === 6;
-      return isWeekEnd;
-    },
-  },
   computed: {
     displayWeekDays() {
-      return this.weekDays.map((day) => day.slice(0, 2)
-      );
+      return this.weekDays.map((day) => day.slice(0, 2));
     },
     numberOfDays() {
       return this.firstDayMoment.daysInMonth();
@@ -78,14 +60,30 @@ export default {
     emptyLastDays() {
       return 7 - this.lastDayOfMonthWeekDay;
     },
+    firstDayMoment() {
+      return moment(this.firstDayOfMonth, 'DD-MM-YYYY');
+    },
+    lastDayMoment() {
+      return moment(this.lastDayOfMonth, 'DD-MM-YYYY');
+    },
+    nameOfMonth() {
+      return moment(this.month, 'MM').format('MMMM');
+    }
   },
-  created() {
-    this.nameOfMonth = moment(this.month, 'MM').format('MMMM');
-    this.firstDayMoment = moment(this.firstDayOfMonth, 'DD-MM-YYYY');
-    this.lastDayMoment = moment(this.lastDayOfMonth, 'DD-MM-YYYY');
+  methods: {
+    getDayByIndex(i) {
+      return moment(this.firstDayOfMonth, 'DD-MM-YYYY').subtract(i, 'days').format('D');
+    },
+    getLastDayByIndex(i) {
+      return moment(this.lastDayOfMonth, 'DD-MM-YYYY').add(i, 'days').format('D');
+    },
+    checkIsWeekEnd(day) {
+      const currentDay = moment(`${day}-${this.month}-${this.currentYear}`, 'DD-MM-YYYY').day();
+      const isWeekEnd = currentDay === 0 || currentDay === 6;
+      return isWeekEnd;
+    },
   },
 }
-
 </script>
 <style>
 .month-card {
@@ -101,7 +99,7 @@ export default {
   font-weight: 300;
 }
 
-.month-card-wrapper {
+.month-card-days {
   display: flex;
   width: 168px;
   flex-wrap: wrap;
@@ -120,4 +118,5 @@ export default {
   align-content: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-}</style>
+}
+</style>
