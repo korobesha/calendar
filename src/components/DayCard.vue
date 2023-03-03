@@ -3,24 +3,14 @@
     {{ day }}
   </div>
 </template>
-<script>
 
+<script>
 export default {
   name: 'DayCard',
   props: {
     day: Number,
     isItWeekEnd: Boolean,
   },
-  components: {
-  },
-  data: () => ({
-  }),
-  computed: {
-  },
-  created() {
-  },
-  method: {
-  }
 }
 </script>
  
