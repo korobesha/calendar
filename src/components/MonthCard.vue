@@ -85,25 +85,25 @@ export default {
   },
 }
 </script>
-<style>
+<style lang="scss">
 .month-card {
-  display: block;
+  display: flex;
   margin: 15px;
-}
 
-.month-card-header {
-  display: flex;
-  justify-content: center;
-  width: 168px;
-  height: 30px;
-  font-weight: 300;
-}
-
-.month-card-days {
-  display: flex;
-  width: 168px;
-  flex-wrap: wrap;
-}
+  &-header {
+    display: flex;
+    justify-content: center;
+    width: 168px;
+    height: 30px;
+    font-weight: 300;
+  }
+  
+  &-wrapper {
+    display: flex;
+    width: 168px;
+    flex-wrap: wrap;
+  }
+} 
 
 .empty-day {
   color: #AAA;
