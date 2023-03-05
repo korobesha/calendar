@@ -1,8 +1,8 @@
 <template>
   <div class="toggle-year" >
-    <div class="toggle-year-previous" @click="$emit('set-current-year', -1)" ></div>
-    <div class="toggle-year-current" @click="$emit('set-current-year', 0)"><slot></slot></div>
-    <div class="toggle-year-next" @click="$emit('set-current-year', 1)"></div>
+    <div class="toggle-year-previous" @click="$emit('set-year', -1)" ></div>
+    <div class="toggle-year-current" @click="$emit('set-year', 0)"><slot></slot></div>
+    <div class="toggle-year-next" @click="$emit('set-year', 1)"></div>
   </div>
 </template>
 

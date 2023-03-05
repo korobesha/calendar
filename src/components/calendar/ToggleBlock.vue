@@ -1,14 +1,16 @@
 <template>
     <div >
-      <ToggleYear @set-current-year="$emit('set-current-year',)"><slot></slot></ToggleYear>
+      <ToggleYear @set-year="$emit('set-current-year')"><slot></slot></ToggleYear>
     </div>
 </template>
 
 <script>
 import ToggleYear from '@/components/calendar/ToggleYear.vue';
 export default{
-  name: 'CalendarBlock',
-  components: {ToggleYear},
+  name: 'ToggleBlock',
+  components: {
+    ToggleYear,
+  },
 }
 </script>
 
