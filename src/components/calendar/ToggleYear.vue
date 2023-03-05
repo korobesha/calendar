@@ -14,13 +14,13 @@ export default {
   },
   method: {
     onToggleYear() {
-      this.$emit('setCurrentProjectYear');
+      this.$emit('set-current-year');
     },
     onToggleYearIncr() {
-      this.$emit('increaseCurrentYear');
+      this.$emit('increase-current-year');
     },
     onToggleYearDecr() {
-      this.$emit('decreaseCurrentYear');
+      this.$emit('decrease-current-year');
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-block">
-    <ToggleYear @onToggleYear="setCurrentProjectYear" @onToggleYearDecr="decreaseCurrentYear" @onToggleYearIncr="increaseCurrentYear">Сегодня</ToggleYear>
+    <ToggleYear @set-current-year="setCurrentProjectYear" @decrease-current-year="decreaseCurrentYear" @increase-current-year="increaseCurrentYear">Сегодня</ToggleYear>
     <CalendarYear :current-project-year="currenProjectYear" />
   </div>
 </template>
