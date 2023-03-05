@@ -12,10 +12,10 @@ const store = new Vuex.Store({
       state.currentProjectYear = new Date().getFullYear();
     },
     INCR_CURRENT_YEAR(state) {
-      state.currentProjectYear++;
+      state.currentProjectYear = state.currentProjectYear + 1;
     },
     DECR_CURRENT_YEAR(state) {
-      state.currentProjectYear--;
+      state.currentProjectYear = state.currentProjectYear - 1;
     },
   },
   getters: {},

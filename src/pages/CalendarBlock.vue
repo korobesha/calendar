@@ -1,12 +1,11 @@
 <template>
   <div class="calendar-block">
-    <ToggleYear @onToggleYear="this.setCurrentProjectYear" @onToggleYearDecr="this.decreaseCurrentYear" @onToggleYearIncr="this.increaseCurrentYear">{{ currentProjectYear }}</ToggleYear>
+    <ToggleYear @onToggleYear="setCurrentProjectYear" @onToggleYearDecr="decreaseCurrentYear" @onToggleYearIncr="increaseCurrentYear">Сегодня</ToggleYear>
     <CalendarYear :current-project-year="currenProjectYear" />
   </div>
 </template>
 
 <script>
-import moment from 'moment';
 import CalendarYear from '@/components/calendar/CalendarYear.vue';
 import { mapMutations, mapState } from 'vuex';
 import ToggleYear from '@/components/calendar/ToggleYear.vue'
@@ -17,18 +16,8 @@ export default {
     CalendarYear,
     ToggleYear,
   },
-  props: {
-    currentProjectYear: Number,
-    },
-  data: () => ({
-    currentDate: moment().format('DD.MM.YYYY'),
-    
-  }),
   computed: {
     ...mapState (['currentProjectYear'])
-  },
-  mounted() {
-    this.setCurrentProjectYear(new Date().getFullYear())
   },
   methods: {
     ...mapMutations({
