@@ -1,7 +1,7 @@
 <template>
   <div class="calendar-block">
-    <ToggleYear @set-current-year="setCurrentProjectYear" @decrease-current-year="decreaseCurrentYear" @increase-current-year="increaseCurrentYear">Сегодня</ToggleYear>
-    <CalendarYear :current-project-year="currenProjectYear" />
+     <ToggleYear @set-current-year="setCurrentProjectYear">Сегодня{{ currentProjectYear }}</ToggleYear> 
+    <CalendarYear :current-project-year="currentProjectYear" />
   </div>
 </template>
 
@@ -22,9 +22,10 @@ export default {
   methods: {
     ...mapMutations({
       setCurrentProjectYear: 'SET_CURRENT_YEAR',
-      increaseCurrentYear : 'INCR_CURRENT_YEAR',
-      decreaseCurrentYear : 'DECR_CURRENT_YEAR',
     }),
+    setCurrentYear(i) {
+      return this.setCurrentProjectYear(i);
+    }
   },
 }
 </script>

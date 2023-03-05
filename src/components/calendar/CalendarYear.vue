@@ -1,9 +1,7 @@
 <template>
-  <div>
     <div class="calendar-year">
       <MonthCard v-for="month in months" :key="month" :month="month" :current-year="currentProjectYear"  />
     </div>
-  </div>
 </template>
 
 <script>

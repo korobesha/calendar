@@ -1,8 +1,8 @@
 <template>
   <div class="toggle-year" >
-    <div class="toggle-year-previous" @click="onToggleYearDecr"></div>
-    <div class="toggle-year-current" @click="onToggleYear"><slot></slot></div>
-    <div class="toggle-year-next" @click="onToggleYearIncr"></div>
+    <div class="toggle-year-previous" @click="onToggleYear(-1)"></div>
+    <div class="toggle-year-current" @click="onToggleYear(0)"><slot></slot></div>
+    <div class="toggle-year-next" @click="onToggleYear(1)"></div>
   </div>
 </template>
 
@@ -12,15 +12,9 @@ export default {
   name: 'ToggleYear',
   props: {
   },
-  method: {
-    onToggleYear() {
-      this.$emit('set-current-year');
-    },
-    onToggleYearIncr() {
-      this.$emit('increase-current-year');
-    },
-    onToggleYearDecr() {
-      this.$emit('decrease-current-year');
+  methods: {
+    onToggleYear(i) {
+      this.$emit('set-current-year',i);
     },
   },
 };
