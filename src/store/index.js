@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     currentProjectYear: new Date().getFullYear(),
+    increment: 0,
   },
   mutations: {
     SET_CURRENT_YEAR(state, increment) {
