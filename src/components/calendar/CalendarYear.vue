@@ -1,18 +1,20 @@
 <template>
-  <div class="calendar-year">
-    <MonthCard v-for="month in months" :key="month" :month="month" :current-year="currentYear" />
+  <div>
+    <div class="calendar-year">
+      <MonthCard v-for="month in months" :key="month" :month="month" :current-year="currentProjectYear"  />
+    </div>
   </div>
 </template>
 
 <script>
-import MonthCard from '@/components/MonthCard.vue';
+import MonthCard from './MonthCard.vue';
 
 export default {
   name: 'CalendarYear',
   props: {
+    currentProjectYear: Number,
     currentYear: {
       type: Number,
-      default: new Date().getFullYear(),
     }
   },
   components: {

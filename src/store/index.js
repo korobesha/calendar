@@ -5,11 +5,17 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    currentProjectYear: null,
+    currentProjectYear: new Date().getFullYear(),
   },
   mutations: {
-    SET_CURRENT_YEAR(state, year) {
-      state.currentProjectYear = year;
+    SET_CURRENT_YEAR(state) {
+      state.currentProjectYear = new Date().getFullYear();
+    },
+    INCR_CURRENT_YEAR(state) {
+      state.currentProjectYear++;
+    },
+    DECR_CURRENT_YEAR(state) {
+      state.currentProjectYear--;
     },
   },
   getters: {},

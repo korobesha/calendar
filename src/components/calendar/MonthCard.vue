@@ -87,7 +87,7 @@ export default {
 </script>
 <style lang="scss">
 .month-card {
-  display: flex;
+  display: block;
   margin: 15px;
 
   &-header {
@@ -98,7 +98,7 @@ export default {
     font-weight: 300;
   }
   
-  &-wrapper {
+  &-days {
     display: flex;
     width: 168px;
     flex-wrap: wrap;
