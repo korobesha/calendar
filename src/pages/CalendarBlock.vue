@@ -1,7 +1,6 @@
 <template>
   <div class="calendar-block">
     <ToggleBlock  @set-current-year="setCurrentProjectYear">Today is {{ currentProjectYear }} year</ToggleBlock>
-    <ToggleYear @set-year="setCurrentProjectYear"></ToggleYear> 
     <CalendarYear :current-project-year="currentProjectYear" />
   </div>
 </template>
@@ -9,14 +8,12 @@
 <script>
 import CalendarYear from '@/components/calendar/CalendarYear.vue';
 import { mapMutations, mapState } from 'vuex';
-import ToggleYear from '@/components/calendar/ToggleYear.vue';
 import ToggleBlock from '@/components/calendar/ToggleBlock.vue';
 
 export default {
   name: 'CalendarBlock',
   components: {
     CalendarYear,
-    ToggleYear,
     ToggleBlock,
   },
   computed: {

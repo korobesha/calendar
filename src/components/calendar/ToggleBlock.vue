@@ -1,6 +1,6 @@
 <template>
     <div >
-      <ToggleYear @set-year="$emit('set-current-year')"><slot></slot></ToggleYear>
+      <ToggleYear @set-year="i=>$emit('set-current-year',i)"><slot></slot></ToggleYear>
     </div>
 </template>
 
