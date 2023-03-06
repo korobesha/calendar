@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'weekend-day': isItWeekEnd }">
+  <div :class="{'weekend-day': isItWeekEnd}">
     {{ day }}
   </div>
 </template>

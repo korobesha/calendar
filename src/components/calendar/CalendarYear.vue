@@ -1,6 +1,6 @@
 <template>
     <div class="calendar-year">
-      <MonthCard v-for="month in months" :key="month" :month="month" :current-year="currentProjectYear"  />
+      <MonthCard v-for="month in months" :key="month" :month="month" :current-year="currentProjectYear"/>
     </div>
 </template>
 

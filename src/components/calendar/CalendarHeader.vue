@@ -1,6 +1,8 @@
 <template>
     <div>
-      <ToggleBlock @toggle=" inc => $emit('toggle',inc)" :current-project-year="currentProjectYear" :is-disabled-min-button="disableMinButton" :is-disabled-max-button="disableMaxButton"/>
+      <ToggleBlock @toggle=" inc => $emit('toggle',inc)" :is-disabled-min-button="disableMinButton" :is-disabled-max-button="disableMaxButton">
+        <slot></slot>
+      </ToggleBlock>
     </div>
 </template>
 
@@ -20,7 +22,7 @@ export default {
     },
     disableMinButton() {
       return this.currentProjectYear < new Date().getFullYear() - 4;
-    }
+    },
   },
 }
 </script>

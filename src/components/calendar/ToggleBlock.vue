@@ -2,7 +2,7 @@
   <div class="toggle-block" >
     <button class="toggle-block-previous" @click="$emit('toggle', -1)" :disabled="isDisabledMinButton"></button>
     <button class="toggle-block-current" @click="$emit('toggle', 0)">
-      Today is {{currentProjectYear}} year
+    <slot></slot>
     </button>
     <button class="toggle-block-next" @click="$emit('toggle', 1)" :disabled="isDisabledMaxButton"></button>
   </div>
@@ -13,7 +13,6 @@
 export default {
   name: 'ToggleBlock',
   props: {
-    currentProjectYear: Number,
     isDisabledMaxButton: Boolean,
     isDisabledMinButton: Boolean,
   },
