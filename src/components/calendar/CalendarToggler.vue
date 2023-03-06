@@ -1,20 +1,22 @@
 <template>
-  <div class="toggle-year" >
-    <div class="toggle-year-previous" @click="$emit('set-year', -1)" ></div>
-    <div class="toggle-year-current" @click="$emit('set-year', 0)"><slot></slot></div>
-    <div class="toggle-year-next" @click="$emit('set-year', 1)"></div>
+  <div class="toggle-pos" >
+    <div class="toggle-pos-previous" @click="$emit('toggle-pos', -1)" ></div>
+    <div class="toggle-pos-current" @click="$emit('toggle-pos', 0)">
+      <slot></slot>
+    </div>
+    <div class="toggle-pos-next" @click="$emit('toggle-pos', 1)"></div>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'ToggleYear',
+  name: 'CalendarToggler',
 };
 </script>
 
 <style lang="scss">
-.toggle-year {
+.toggle-pos {
   display: flex;
   align-items: center;
 
@@ -50,5 +52,4 @@ export default {
     }  
   };
 }
-
 </style>
