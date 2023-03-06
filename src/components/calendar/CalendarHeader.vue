@@ -1,6 +1,6 @@
 <template>
     <div>
-      <ToggleBlock @toggle=" inc => $emit('toggle',inc)" :current-project-year="currentProjectYear"/>
+      <ToggleBlock @toggle=" inc => $emit('toggle',inc)" :current-project-year="currentProjectYear" :is-disabled-min-button="disableMinButton" :is-disabled-max-button="disableMaxButton"/>
     </div>
 </template>
 
@@ -14,7 +14,13 @@ export default {
     ToggleBlock,
   },
   computed: {
-    ...mapState (['currentProjectYear',])
+    ...mapState (['currentProjectYear',]),
+    disableMaxButton() {
+      return this.currentProjectYear > new Date().getFullYear();
+    },
+    disableMinButton() {
+      return this.currentProjectYear < new Date().getFullYear() - 4;
+    }
   },
 }
 </script>

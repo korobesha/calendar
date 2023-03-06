@@ -14,16 +14,11 @@ export default {
   name: 'ToggleBlock',
   props: {
     currentProjectYear: Number,
+    isDisabledMaxButton: Boolean,
+    isDisabledMinButton: Boolean,
   },
-  computed: {
-    isDisabledMaxButton() {
-      return this.currentProjectYear > new Date().getFullYear()
-    },
-    isDisabledMinButton() {
-      return this.currentProjectYear < new Date().getFullYear() - 4
-    },
-  }
 }
+
 </script>
 
 <style lang="scss">
@@ -39,7 +34,7 @@ export default {
     cursor: pointer;
 
     &:disabled{
-      display:none;
+      background:none;
     }
     
     &:hover {
