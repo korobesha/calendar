@@ -9,18 +9,10 @@ const store = new Vuex.Store({
   },
   mutations: {
     SET_CURRENT_YEAR(state, increment) {
-      if (increment == 0) {
-        state.currentProjectYear = new Date().getFullYear();
-      } else if (
-        (state.currentProjectYear <= new Date().getFullYear() - 6 &&
-          increment < 0) ||
-        (state.currentProjectYear >= new Date().getFullYear() + 1 &&
-          increment > 0)
-      ) {
-        state.currentProjectYear = state.currentProjectYear + 0;
-      } else {
-        state.currentProjectYear = state.currentProjectYear + increment;
-      }
+      state.currentProjectYear =
+        increment == 0
+          ? new Date().getFullYear()
+          : state.currentProjectYear + increment;
     },
   },
   getters: {},

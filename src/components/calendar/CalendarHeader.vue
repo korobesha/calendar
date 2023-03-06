@@ -1,17 +1,20 @@
 <template>
-    <div >
-      <CalendarToggler @toggle-pos=" inc => $emit('toggle-year',inc)">
-        <slot></slot>
-      </CalendarToggler>
+    <div>
+      <ToggleBlock @toggle=" inc => $emit('toggle',inc)" :current-project-year="currentProjectYear"/>
     </div>
 </template>
 
 <script>
-import CalendarToggler from '@/components/calendar/CalendarToggler.vue';
-export default{
+import ToggleBlock from '@/components/calendar/ToggleBlock.vue';
+import { mapState } from 'vuex';
+
+export default {
   name: 'CalendarHeader',
   components: {
-    CalendarToggler,
+    ToggleBlock,
+  },
+  computed: {
+    ...mapState (['currentProjectYear',])
   },
 }
 </script>

@@ -11,9 +11,6 @@ export default {
   name: 'CalendarYear',
   props: {
     currentProjectYear: Number,
-    currentYear: {
-      type: Number,
-    }
   },
   components: {
     MonthCard,

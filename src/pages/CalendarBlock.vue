@@ -1,15 +1,13 @@
 <template>
   <div class="calendar-block">
-    <div class="calendar-block-header">
-      <CalendarHeader  @toggle-year="setCurrentProjectYear">Today is {{currentProjectYear}} year</CalendarHeader>
-    </div>
+    <CalendarHeader  @toggle="setCurrentProjectYear" class="calendar-block-header"/>
     <CalendarYear :current-project-year="currentProjectYear"/>
   </div>
 </template>
 
 <script>
 import CalendarYear from '@/components/calendar/CalendarYear.vue';
-import {mapMutations, mapState} from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 import CalendarHeader from '@/components/calendar/CalendarHeader.vue';
 
 export default {
@@ -19,7 +17,7 @@ export default {
     CalendarHeader,
   },
   computed: {
-    ...mapState (['currentProjectYear','increment'])
+    ...mapState (['currentProjectYear'])
   },
   methods: {
     ...mapMutations({
