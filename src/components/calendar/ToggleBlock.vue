@@ -1,9 +1,7 @@
 <template>
   <div class="toggle-block" >
     <button class="toggle-block-previous" @click="$emit('toggle', -1)" :disabled="isDisabledMinButton"></button>
-    <button class="toggle-block-current" @click="$emit('toggle', 0)">
-    <slot></slot>
-    </button>
+    <button class="toggle-block-current" @click="$emit('toggle', 0)">Today</button>
     <button class="toggle-block-next" @click="$emit('toggle', 1)" :disabled="isDisabledMaxButton"></button>
   </div>
 </template>
@@ -31,9 +29,11 @@ export default {
     width: 24px;
     background: url('@/assets/arrow_back.svg');
     cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
     &:disabled{
-      background:none;
+      background:  #F1F2FC;
+      border: 1px solid #F1F2FC;
     }
     
     &:hover {
@@ -47,6 +47,7 @@ export default {
     width: 24px;  
     background: url('@/assets/arrow_forward.svg');
     cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
     &:disabled{
       display:none;
@@ -59,6 +60,7 @@ export default {
   &-current {
     cursor: pointer;
     padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
     &:hover {
       background-color:  aqua;

@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-block">
-    <CalendarHeader @toggle="setCurrentProjectYear" class="calendar-block-header">Today is {{ currentProjectYear }} year</CalendarHeader>
+    <CalendarHeader @toggle="setCurrentProjectYear" class="calendar-block-header"/>
     <CalendarYear :current-project-year="currentProjectYear"/>
   </div>
 </template>
