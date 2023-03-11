@@ -8,11 +8,12 @@
 
 import CalendarBlock from '@/pages/CalendarBlock.vue';
 
+
 export default {
   name: 'App',
   components: {
     CalendarBlock,
-  },
+  }, 
 }
 </script>
 
