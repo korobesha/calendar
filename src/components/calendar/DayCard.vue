@@ -17,5 +17,5 @@ export default {
 <style>
 .weekend-day {
   color: #A00;
-}
+};
 </style>

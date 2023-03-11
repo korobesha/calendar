@@ -3,7 +3,11 @@
       <div class="calendar-header-block">
         {{currentProjectYear}}
       </div>
-      <ToggleBlock @toggle=" inc => $emit('toggle',inc)" :is-disabled-min-button="disableMinButton" :is-disabled-max-button="disableMaxButton"/>
+      <ToggleBlock 
+        @toggle=" inc => $emit('toggle',inc)" 
+        :is-disabled-min-button="disableMinButton" 
+        :is-disabled-max-button="disableMaxButton"
+      />
     </div>
 </template>
 
@@ -32,5 +36,5 @@ export default {
 .calendar-header {
   display:flex;
   align-items: center;
-}
+};
 </style>

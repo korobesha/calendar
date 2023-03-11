@@ -4,14 +4,28 @@
       {{ nameOfMonth }}
     </div>
     <div class='month-card-days'>
-      <div class="day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
+      <div class="day" 
+        v-for="weekDay in displayWeekDays" 
+        :key="`weekDay${weekDay}`"
+      >
         {{ weekDay }}
       </div>
-      <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
+      <div class="day empty-day" 
+        v-for="(emptyDay, i) in emptyDays" 
+        :key="`emptyDay${emptyDay}`"
+      >
         {{ getDayByIndex(emptyDays - i) }}
       </div>
-      <DayCard v-for="day in numberOfDays" :key="day" :day="day" class="day" :is-it-week-end="checkIsWeekEnd(day)" />
-      <div class="day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
+      <DayCard 
+        v-for="day in numberOfDays" 
+        :key="day" :day="day" 
+        class="day" 
+        :is-it-week-end="checkIsWeekEnd(day)" 
+      />
+      <div class="day empty-day" 
+        v-for="(emptyLastDay, i) in emptyLastDays" 
+        :key="`emptyLastDay${emptyLastDay}`"
+      >
         {{ getLastDayByIndex(i + 1) }}
       </div>
     </div>
@@ -19,7 +33,7 @@
 </template>
 <script>
 import moment from 'moment';
-import DayCard from './DayCard.vue'
+import DayCard from './DayCard.vue';
 
 export default {
   name: 'MonthCard',
@@ -68,7 +82,7 @@ export default {
     },
     nameOfMonth() {
       return moment(this.month, 'MM').format('MMMM');
-    }
+    },
   },
   methods: {
     getDayByIndex(i) {
@@ -85,6 +99,7 @@ export default {
   },
 }
 </script>
+
 <style lang="scss">
 .month-card {
   display: block;
@@ -96,18 +111,18 @@ export default {
     width: 168px;
     height: 30px;
     font-weight: 300;
-  }
+  };
   
   &-days {
     display: flex;
     width: 168px;
     flex-wrap: wrap;
-  }
-} 
+  };
+};
 
 .empty-day {
   color: #AAA;
-}
+};
 
 .day {
   display: flex;
@@ -118,5 +133,5 @@ export default {
   align-content: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-}
+};
 </style>

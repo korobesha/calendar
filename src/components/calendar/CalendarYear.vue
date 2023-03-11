@@ -1,7 +1,12 @@
 <template>
-    <div class="calendar-year">
-      <MonthCard v-for="month in months" :key="month" :month="month" :current-year="currentProjectYear"/>
-    </div>
+  <div class="calendar-year">
+    <MonthCard 
+      v-for="month in months" 
+      :key="month" 
+      :month="month" 
+      :current-year="currentProjectYear"
+    />
+  </div>
 </template>
 
 <script>
@@ -26,5 +31,5 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-}
+};
 </style>

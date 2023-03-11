@@ -39,6 +39,6 @@ export default {
   &-header {
     font-size: 18px;
     padding: 20px;
-  }
-}
+  };
+};
 </style>
