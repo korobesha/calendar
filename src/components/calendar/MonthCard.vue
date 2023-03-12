@@ -34,12 +34,12 @@
 <script>
 import moment from 'moment';
 import DayCard from './DayCard.vue';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'MonthCard',
   props: {
     month: Number,
-    currentYear: Number,
   },
   components: {
     DayCard
@@ -48,6 +48,7 @@ export default {
     weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
   }),
   computed: {
+    ...mapState (['currentProjectYear']),
     displayWeekDays() {
       return this.weekDays.map((day) => day.slice(0, 2));
     },
@@ -55,7 +56,7 @@ export default {
       return this.firstDayMoment.daysInMonth();
     },
     firstDayOfMonth() {
-      return `01-${this.month}-${this.currentYear}`;
+      return `01-${this.month}-${this.currentProjectYear}`;
     },
     firstDayOfMonthWeekDay() {
       const firstWeekDay = this.firstDayMoment.day();
@@ -65,7 +66,7 @@ export default {
       return this.firstDayOfMonthWeekDay - 1;
     },
     lastDayOfMonth() {
-      return `${this.numberOfDays}-${this.month}-${this.currentYear}`;
+      return `${this.numberOfDays}-${this.month}-${this.currentProjectYear}`;
     },
     lastDayOfMonthWeekDay() {
       const lastWeekDay = this.lastDayMoment.day();
@@ -85,6 +86,9 @@ export default {
     },
   },
   methods: {
+    ...mapMutations({
+      setCurrentProjectYear: 'SET_CURRENT_YEAR',
+    }),
     getDayByIndex(i) {
       return moment(this.firstDayOfMonth, 'DD-MM-YYYY').subtract(i, 'days').format('D');
     },
@@ -92,7 +96,7 @@ export default {
       return moment(this.lastDayOfMonth, 'DD-MM-YYYY').add(i, 'days').format('D');
     },
     checkIsWeekEnd(day) {
-      const currentDay = moment(`${day}-${this.month}-${this.currentYear}`, 'DD-MM-YYYY').day();
+      const currentDay = moment(`${day}-${this.month}-${this.currentProjectYear}`, 'DD-MM-YYYY').day();
       const isWeekEnd = currentDay === 0 || currentDay === 6;
       return isWeekEnd;
     },

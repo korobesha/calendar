@@ -4,16 +4,16 @@
         {{currentProjectYear}}
       </div>
       <ToggleBlock 
-        @toggle=" inc => $emit('toggle',inc)" 
-        :is-disabled-min-button="disableMinButton" 
-        :is-disabled-max-button="disableMaxButton"
+        @toggle="setCurrentProjectYear" 
+        :is-disabled-min-button="currentProjectYear < new Date().getFullYear() - 4" 
+        :is-disabled-max-button= "currentProjectYear > new Date().getFullYear()"
       />
     </div>
 </template>
 
 <script>
 import ToggleBlock from '@/components/calendar/ToggleBlock.vue';
-import { mapState } from 'vuex';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'CalendarHeader',
@@ -21,13 +21,12 @@ export default {
     ToggleBlock,
   },
   computed: {
-    ...mapState (['currentProjectYear',]),
-    disableMaxButton() {
-      return this.currentProjectYear > new Date().getFullYear();
-    },
-    disableMinButton() {
-      return this.currentProjectYear < new Date().getFullYear() - 4;
-    },
+    ...mapState (['currentProjectYear',])
+  },
+  methods: {
+    ...mapMutations({
+      setCurrentProjectYear: 'SET_CURRENT_YEAR',
+    }),
   },
 }
 </script>

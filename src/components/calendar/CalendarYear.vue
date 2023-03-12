@@ -4,25 +4,30 @@
       v-for="month in months" 
       :key="month" 
       :month="month" 
-      :current-year="currentProjectYear"
     />
   </div>
 </template>
 
 <script>
 import MonthCard from './MonthCard.vue';
+import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'CalendarYear',
-  props: {
-    currentProjectYear: Number,
-  },
   components: {
     MonthCard,
+  },
+  computed: {
+    ...mapState (['currentProjectYear',])
   },
   data: () => ({
     months: 12,
   }),
+  methods: {
+    ...mapMutations({
+      setCurrentProjectYear: 'SET_CURRENT_YEAR',
+    }),
+  },
 };
 </script>
 
