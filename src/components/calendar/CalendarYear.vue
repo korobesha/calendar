@@ -10,24 +10,15 @@
 
 <script>
 import MonthCard from './MonthCard.vue';
-import { mapMutations, mapState } from 'vuex';
 
 export default {
   name: 'CalendarYear',
   components: {
     MonthCard,
   },
-  computed: {
-    ...mapState (['currentProjectYear',])
-  },
   data: () => ({
     months: 12,
   }),
-  methods: {
-    ...mapMutations({
-      setCurrentProjectYear: 'SET_CURRENT_YEAR',
-    }),
-  },
 };
 </script>
 

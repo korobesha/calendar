@@ -1,7 +1,7 @@
 <template>
     <div class="calendar-header">
       <div class="calendar-header-block">
-        {{currentProjectYear}}
+        {{ currentProjectYear }}
       </div>
       <ToggleBlock 
         @toggle="setCurrentProjectYear" 

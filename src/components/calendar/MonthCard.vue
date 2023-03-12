@@ -34,7 +34,7 @@
 <script>
 import moment from 'moment';
 import DayCard from './DayCard.vue';
-import { mapMutations, mapState } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'MonthCard',
@@ -86,9 +86,6 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({
-      setCurrentProjectYear: 'SET_CURRENT_YEAR',
-    }),
     getDayByIndex(i) {
       return moment(this.firstDayOfMonth, 'DD-MM-YYYY').subtract(i, 'days').format('D');
     },

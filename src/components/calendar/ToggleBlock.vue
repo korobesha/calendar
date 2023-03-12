@@ -49,14 +49,14 @@ export default {
     width: 36px;
     cursor: pointer;
 
-    &:disabled{
+    &:disabled {
       cursor: default;
 
       svg {
         fill: #CCC;
       };
 
-      &:hover{
+      &:hover {
         background-color: #F1F2FC;
       };
     };
@@ -74,7 +74,7 @@ export default {
     width: 36px; 
     cursor: pointer;
 
-    &:disabled{
+    &:disabled {
       color: #F1F2FC;
       cursor: default;
 
