@@ -1,7 +1,7 @@
 <template>
   <div class="calendar-block">
-    <CalendarHeader class="calendar-block-header"/>
-    <CalendarYear/>
+    <CalendarHeader class="calendar-block-header" />
+    <CalendarYear />
   </div>
 </template>
 
