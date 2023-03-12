@@ -6,7 +6,7 @@
 
 <script>
 
-import CalendarBlock from '@/CalendarBlock.vue';
+import CalendarBlock from '@/pages/CalendarBlock.vue';
 
 export default {
   name: 'App',
