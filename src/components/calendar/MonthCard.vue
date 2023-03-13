@@ -73,7 +73,7 @@ export default {
       return lastWeekDay ? lastWeekDay : 7
     },
     emptyLastDays() {
-      return 7 - this.lastDayOfMonthWeekDay;
+      return 42 - this.numberOfDays - this.emptyDays;
     },
     firstDayMoment() {
       return moment(this.firstDayOfMonth, 'DD-MM-YYYY');
