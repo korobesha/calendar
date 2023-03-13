@@ -1,25 +1,25 @@
 <template>
-  <div class="sideMenu">
+  <div class="side-bar">
     <div>
-      <input type="checkbox" id="hmt" class="hidden-menu-ticker">
-      <label class="btn-menu" for="hmt">
+      <input type="checkbox" id="smt" class="side-menu-ticker">
+      <label class="btn-menu" for="smt">
         <span class="first"></span>
         <span class="second"></span>
         <span class="third"></span>
       </label>
-      <ul class="hidden-menu">
+      <ul class="side-menu-list">
         <li>
-          <router-link class="link" :to="{ name: 'calendar'}">
+          <router-link class="link" :to="{ name: 'calendar' }">
             Calendar
           </router-link>
         </li>  
         <li>
-          <router-link class="link" :to="{ name: 'weather'}">
+          <router-link class="link" :to="{ name: 'weather' }">
             Weather
           </router-link>
         </li>
         <li>
-          <router-link class="link" :to="{ name: 'main'}">
+          <router-link class="link" :to="{ name: 'main' }">
             Main
           </router-link>
         </li>  
@@ -41,15 +41,15 @@ export default {
   color: black;
   text-decoration: none;
 
-  &:visited {
+  & :visited {
   color: black;
   }
 };
 
-.hidden-menu {
+.side-menu-list {
   display: block;
   position: fixed;
-  list-style:none;
+  list-style: none;
   padding: 10px;
   margin: 0;
   box-sizing: border-box;
@@ -58,13 +58,13 @@ export default {
   height: 100%;
   top: 0;
   right: -200px;
-  transition: left 1.5s;
+  transition-duration: 1s;
   z-index: 2;
   transform: translateZ(0);
   backface-visibility: hidden;
 };
 
-.hidden-menu-ticker {
+.side-menu-ticker {
   display: none;
 };
 
@@ -76,7 +76,7 @@ export default {
   top: 5px;
   right: 5px;
   cursor: pointer;
-  transition: left 1.5s;
+  transition-duration: 1s;
   z-index: 3;
   width: 25px;
   transform: translateZ(0);
@@ -89,7 +89,7 @@ export default {
   height: 3px;
   background-color: #fff;
   margin: 5px 0 0;
-  transition: all .1s linear .2s;
+  transition: all .1s linear .1s;
   position: relative;
 };
 
@@ -97,24 +97,24 @@ export default {
   margin-top: 0;
 };
 
-.hidden-menu-ticker:checked ~ .btn-menu {
+.side-menu-ticker:checked ~ .btn-menu {
   right: 5px;
 };
 
-.hidden-menu-ticker:checked ~ .hidden-menu {
+.side-menu-ticker:checked ~ .side-menu-list {
   right: 0;
 };
 
-.hidden-menu-ticker:checked ~ .btn-menu span.first {
+.side-menu-ticker:checked ~ .btn-menu span.first {
   transform: rotate(45deg);
   top: 8px; 
 };
 
-.hidden-menu-ticker:checked ~ .btn-menu span.second {
+.side-menu-ticker:checked ~ .btn-menu span.second {
   opacity: 0;
 };
 
-.hidden-menu-ticker:checked ~ .btn-menu span.third {
+.side-menu-ticker:checked ~ .btn-menu span.third {
   transform: rotate(-45deg);
   top: -8px;    
 };
