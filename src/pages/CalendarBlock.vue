@@ -9,6 +9,7 @@
 import CalendarYear from '@/components/calendar/CalendarYear.vue';
 import CalendarHeader from '@/components/calendar/CalendarHeader.vue';
 
+
 export default {
   name: 'CalendarBlock',
   components: {
