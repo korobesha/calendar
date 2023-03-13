@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <router-view></router-view>
+  <div class="sideMenu">
     <div>
       <input type="checkbox" id="hmt" class="hidden-menu-ticker">
       <label class="btn-menu" for="hmt">
@@ -10,18 +9,18 @@
       </label>
       <ul class="hidden-menu">
         <li>
-          <router-link class="link" :to="{name:'calendar'}">
+          <router-link class="link" :to="{ name: 'calendar'}">
             Calendar
           </router-link>
         </li>  
         <li>
-          <router-link class="link" :to="{name:'weather'}">
+          <router-link class="link" :to="{ name: 'weather'}">
             Weather
           </router-link>
         </li>
         <li>
-          <router-link class="link" :to="{name:'main'}"
-          >Main
+          <router-link class="link" :to="{ name: 'main'}">
+            Main
           </router-link>
         </li>  
       </ul>

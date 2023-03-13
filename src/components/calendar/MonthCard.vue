@@ -17,9 +17,10 @@
         {{ getDayByIndex(emptyDays - i) }}
       </div>
       <DayCard 
+        class="day"
         v-for="day in numberOfDays" 
-        :key="day" :day="day" 
-        class="day" 
+        :key="day" 
+        :day="day" 
         :is-it-week-end="checkIsWeekEnd(day)" 
       />
       <div class="day empty-day" 

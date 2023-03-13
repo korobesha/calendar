@@ -6,7 +6,7 @@
       <ToggleBlock 
         @toggle="setCurrentProjectYear" 
         :is-disabled-min-button="currentProjectYear < new Date().getFullYear() - 4" 
-        :is-disabled-max-button= "currentProjectYear > new Date().getFullYear()"
+        :is-disabled-max-button="currentProjectYear > new Date().getFullYear()"
       />
     </div>
 </template>

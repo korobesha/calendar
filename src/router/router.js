@@ -11,13 +11,13 @@ let router = new Router({
   mode: "history",
   routes: [
     {
-      path: "/Calendar",
+      path: "/calendar",
       name: "calendar",
       component: CalendarBlock,
       props: true,
     },
     {
-      path: "/Weather",
+      path: "/weather",
       name: "weather",
       component: WeatherBlock,
     },

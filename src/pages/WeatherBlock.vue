@@ -1,6 +1,6 @@
 <template>
   <div>
-weather
+    weather
   </div>
 </template>
 
