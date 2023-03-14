@@ -25,6 +25,7 @@ let router = new Router({
       path: "/",
       name: "main",
       component: MainBlock,
+      props: true,
     },
   ],
 });

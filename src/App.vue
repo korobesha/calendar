@@ -7,10 +7,12 @@
 
 <script>
 import SideMenu from './components/SideMenu.vue';
+
+
 export default {
   name: 'App',
   components: {
-    SideMenu
+    SideMenu,
   },
 }
 </script>
