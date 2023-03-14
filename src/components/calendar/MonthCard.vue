@@ -43,7 +43,7 @@ export default {
     month: Number,
   },
   components: {
-    DayCard
+    DayCard,
   },
   data: () => ({
     weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],

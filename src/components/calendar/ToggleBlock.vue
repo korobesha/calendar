@@ -65,6 +65,7 @@ export default {
       background-color: #d7d9e7;
     };
   };
+
   &-next {
     display: flex;
     justify-content: flex-start;
@@ -91,6 +92,7 @@ export default {
       background-color: #d7d9e7;
     };
   };
+  
   &-current {
     cursor: pointer;
     padding: 5px;

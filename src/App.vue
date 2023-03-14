@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <SideBar />
+    <SideMenu />
   </div>
 </template>
 
 <script>
-import SideBar from './components/SideBar.vue';
+import SideMenu from './components/SideMenu.vue';
 export default {
   name: 'App',
   components: {
-    SideBar
+    SideMenu
   },
 }
 </script>
