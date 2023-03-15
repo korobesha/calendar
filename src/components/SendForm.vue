@@ -3,7 +3,9 @@
     <form 
     action="#"
     id="form"
-    class="send-form-body">
+    class="send-form-body"
+    method="post"
+    >
       <div class="send-form-item">
         <label for="formName" class="form-label">
           UR Name
@@ -15,7 +17,8 @@
           required 
           type="text" 
           name="name" 
-          class="form-input"
+          class="form-input _req"
+          v-model="name"
         >
       </div>
       <div class="send-form-item">
@@ -30,6 +33,7 @@
           type="text" 
           name="surname" 
           class="form-input"
+          v-model="surname"
         >
       </div>
       <div class="send-form-item">
@@ -37,11 +41,11 @@
           UR Sex
         </label>
         <div class="options">
-          <input id="formFemale" checked type="radio" value="F" name="sex" class="options-input">
+          <input id="formFemale" checked type="radio" value="F" name="sex" class="options-input" v-model="sex">
           <label for="formFemale" class="options-label">F</label>
         </div>
         <div class="options">
-          <input id="formMale" type="radio" value="M" name="sex" class="options-input">
+          <input id="formMale" type="radio" value="M" name="sex" class="options-input" v-model="sex">
           <label for="formMale" class="options-label">M</label>
         </div>
       </div>
@@ -58,13 +62,23 @@
           min="1923-01-01" 
           max="2022-01-01" 
           class="form-input"
+          v-model="birthday"
         >
       </div>
       <div class="send-form-item">
         <label for="formEmail" class="form-label">
           UR E-mail
         </label>
-        <input id="formEmail"  title="Введите электронную почту" required type="text" name="email" class="form-input">
+        <input 
+          id="formEmail"  
+          pattern="*[@]*"
+          title="Введите электронную почту" 
+          required 
+          type="text" 
+          name="email" 
+          class="form-input"
+          v-model="email"
+        >
       </div>
       <div class="send-form-item">
         <label for="formPhone" class="form-label">
@@ -78,6 +92,7 @@
           type="text" 
           name="phone" 
           class="form-input"
+          v-model="phone"
         >
       </div>
       <div class="send-form-item">
@@ -85,14 +100,21 @@
           <label for="formAgree" class="checkbox-label">
             Я даю свое согласие на использование персональных данных
           </label>
-          <input id="formAgree" type="checkbox" required name="agreement" class="checkbox-input">
+          <input 
+            id="formAgree" 
+            type="checkbox" 
+            required 
+            name="agreement" 
+            class="checkbox-input"
+            v-model="agreement"
+          >
         </div>
       </div>
       <div class="send-form-item">
         <label for="formMessage" class="form-label">
           UR Comment
         </label>
-        <textarea name="message" id="formMessage" class="form-input"></textarea>
+        <textarea name="message" id="formMessage" class="form-input" v-model="message"></textarea>
       </div>
       <button class="form-button" type="submit">
         Send
@@ -104,8 +126,16 @@
 <script>
 export default {
   name: 'SendForm',
-  methods: {
-  }
+  data: () => ({
+    name: null, 
+    surname: null,
+    sex: null,
+    зhone: null,
+    birthday: null,
+    email: null,
+    agreement: null,
+    message: null,
+  }),
 }
 </script>
 
