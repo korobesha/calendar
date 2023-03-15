@@ -43,8 +43,8 @@ export default {
   color: black;
   };
 };
-
-.side-menu-list {
+.side-menu {
+  &-list {
   display: block;
   position: fixed;
   list-style: none;
@@ -60,28 +60,29 @@ export default {
   z-index: 2;
   transform: translateZ(0);
   backface-visibility: hidden;
-};
+  };
 
-.side-menu-ticker {
-  display: none;
+  &-ticker {
+    display: none;
 
-  &:checked {
-    ~ .btn-menu{
-      right: 5px;
-    };
-    ~ .side-menu-list {
-      right: 0;
-    };
-    ~ .btn-menu .btn-menu-first {
-      transform: rotate(45deg);
-      top: 8px; 
-    };
-    ~ .btn-menu .btn-menu-second {
-      opacity: 0;
-    };
-    ~ .btn-menu .btn-menu-third {
-      transform: rotate(-45deg);
-      top: -8px;    
+    &:checked {
+      ~ .btn-menu{
+        right: 5px;
+      };
+      ~ .side-menu-list {
+        right: 0;
+      };
+      ~ .btn-menu .btn-menu-first {
+        transform: rotate(45deg);
+        top: 8px; 
+      };
+      ~ .btn-menu .btn-menu-second {
+        opacity: 0;
+      };
+      ~ .btn-menu .btn-menu-third {
+        transform: rotate(-45deg);
+        top: -8px;    
+      };
     };
   };
 };
@@ -99,6 +100,10 @@ export default {
   width: 25px;
   transform: translateZ(0);
   backface-visibility: hidden;
+
+  .btn-menu-first {
+    margin-top: 0;
+  };
 };
 
 .btn-menu-first, .btn-menu-second, 
@@ -111,9 +116,4 @@ export default {
   transition: all .1s linear .1s;
   position: relative;
 };
-
-.btn-menu .btn-menu-first {
-  margin-top: 0;
-};
-
 </style>
