@@ -17,11 +17,11 @@
         {{ getDayByIndex(emptyDays - i) }}
       </div>
       <DayCard 
-        class="day"
         v-for="day in numberOfDays" 
         :key="day" 
         :day="day" 
         :is-it-week-end="checkIsWeekEnd(day)" 
+        class="day" 
       />
       <div class="day empty-day" 
         v-for="(emptyLastDay, i) in emptyLastDays" 
@@ -69,12 +69,8 @@ export default {
     lastDayOfMonth() {
       return `${this.numberOfDays}-${this.month}-${this.currentProjectYear}`;
     },
-    lastDayOfMonthWeekDay() {
-      const lastWeekDay = this.lastDayMoment.day();
-      return lastWeekDay ? lastWeekDay : 7
-    },
     emptyLastDays() {
-      return 7 - this.lastDayOfMonthWeekDay;
+      return 42 - this.numberOfDays - this.emptyDays;
     },
     firstDayMoment() {
       return moment(this.firstDayOfMonth, 'DD-MM-YYYY');

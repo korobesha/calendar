@@ -102,7 +102,7 @@ export default {
   transform: translateZ(0);
   backface-visibility: hidden;
 
-  &-second, &-third {
+  &-first, &-second, &-third {
     display: block;
     right: 0;
     height: 3px;
@@ -113,12 +113,6 @@ export default {
   };
 
   &-first {
-    display: block;
-    right: 0;
-    height: 3px;
-    background-color: #fff;
-    transition: all .1s linear .1s;
-    position: relative;
     margin-top: 0;
   };
 };
