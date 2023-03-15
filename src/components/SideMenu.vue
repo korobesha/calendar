@@ -39,8 +39,8 @@ export default {
   color: black;
   text-decoration: none;
 
-  & :visited {
-  color: black;
+  &:visited {
+    color: black;
   };
 };
 
