@@ -20,8 +20,8 @@
         v-for="day in numberOfDays" 
         :key="day" 
         :day="day" 
-        class="day" 
         :is-it-week-end="checkIsWeekEnd(day)" 
+        class="day" 
       />
       <div class="day empty-day" 
         v-for="(emptyLastDay, i) in emptyLastDays" 
@@ -43,7 +43,7 @@ export default {
     month: Number,
   },
   components: {
-    DayCard
+    DayCard,
   },
   data: () => ({
     weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],

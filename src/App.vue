@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <CalendarBlock />
+    <router-view></router-view>
+    <SideMenu />
   </div>
 </template>
 
 <script>
-
-import CalendarBlock from '@/pages/CalendarBlock.vue';
-
+import SideMenu from './components/SideMenu.vue';
 export default {
   name: 'App',
   components: {
-    CalendarBlock,
+    SideMenu
   },
 }
 </script>
