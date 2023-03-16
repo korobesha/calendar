@@ -1,14 +1,13 @@
 <template>
   <div class="calendar-block">
-      <CalendarHeader class="calendar-block-header" />
-      <CalendarYear />
+    <CalendarHeader class="calendar-block-header" />
+    <CalendarYear />
   </div>
 </template>
 
 <script>
 import CalendarYear from '@/components/calendar/CalendarYear.vue';
 import CalendarHeader from '@/components/calendar/CalendarHeader.vue';
-
 
 export default {
   name: 'CalendarBlock',
