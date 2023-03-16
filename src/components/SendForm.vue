@@ -17,7 +17,7 @@
           required 
           type="text" 
           name="name" 
-          class="form-input _req"
+          class="form-input"
           v-model="name"
         >
       </div>
@@ -41,7 +41,7 @@
           UR Sex
         </label>
         <div class="options">
-          <input id="formFemale" checked type="radio" value="F" name="sex" class="options-input" v-model="sex">
+          <input id="formFemale" type="radio" value="F" name="sex" class="options-input" v-model="sex">
           <label for="formFemale" class="options-label">F</label>
         </div>
         <div class="options">
@@ -147,20 +147,20 @@ export default {
   font-size: 14px;
 
   &-body {
-    
     padding: 10px;
     border-radius: 6px;
     background: #cecde0;
     box-shadow:  -7px 7px 16px #7a7984,
              7px -7px 16px #ffffff;
   };
-};
-.send-form-item {
+
+  &-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 2px; 
   };
+};
 .options-item {
   display: flex;
   gap: 10px;
