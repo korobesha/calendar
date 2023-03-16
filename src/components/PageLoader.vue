@@ -1,6 +1,11 @@
 <template>
   <div class="loader">
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </template>
 
@@ -11,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-.loader{
+.loader {
   width: 100%;
   height: 100%;
   z-index: 100;
