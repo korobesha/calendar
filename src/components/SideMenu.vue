@@ -33,6 +33,9 @@ export default {
 </script>
 
 <style lang="scss">
+.side-menu {
+  display: flex;
+}
 .link {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
