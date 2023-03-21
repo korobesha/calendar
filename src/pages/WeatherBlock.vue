@@ -1,11 +1,10 @@
 <template>
   <div>
-    <SideMenu />
+
   </div>
 </template>
 
 <script>
-import SideMenu from '@/components/SideMenu.vue';
 
 export default {
   name: 'WeatherBlock',
@@ -15,12 +14,12 @@ export default {
   props: {
   },
   components: {
-    SideMenu,
   },
 }
 
 </script>
 
 <style lang="scss">
+
 
 </style>

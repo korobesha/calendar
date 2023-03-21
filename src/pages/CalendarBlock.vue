@@ -1,7 +1,6 @@
 <template>
   <div class="calendar-block">
     <div class="calendar-block-header">
-      <SideMenu />
       <CalendarHeader />
     </div>
     <div class="calendar-block-content">
@@ -13,28 +12,20 @@
 <script>
 import CalendarYear from '@/components/calendar/CalendarYear.vue';
 import CalendarHeader from '@/components/calendar/CalendarHeader.vue';
-import SideMenu from '@/components/SideMenu.vue';
+
 
 export default {
   name: 'CalendarBlock',
   components: {
     CalendarYear,
-    CalendarHeader,
-    SideMenu,
-  }, 
+    CalendarHeader
+  },
 }
 </script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-html {
-  height: 100%;
-}
-body {
-  height: 100% ;
-}
 
 .calendar-block {
   font-family: 'PT Sans', sans-serif;
@@ -46,10 +37,15 @@ body {
     font-size: 18px;
     padding: 20px;
     display: flex;
-  };
+    justify-content: center;
+    align-items: center;
+  }
+
   &-content {
     display: flex;
     justify-content: center;
+    height: auto;
   }
-};
+
+}
 </style>

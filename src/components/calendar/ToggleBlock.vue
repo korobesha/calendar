@@ -10,7 +10,12 @@
         <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
       </svg>
     </button>
-    <button class="toggle-block-current" @click="$emit('toggle', 0)">Today</button>
+    <button 
+      class="toggle-block-current" 
+      @click="$emit('toggle', 0)"
+    >
+      Today
+    </button>
     <button 
       class="toggle-block-next" 
       @click="$emit('toggle', 1)" 
@@ -96,10 +101,11 @@ export default {
   &-current {
     cursor: pointer;
     padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 1);
 
     &:hover {
       background-color:  #d7d9e7;
+      border: 2px solid black;
     };
   };
 };

@@ -26,6 +26,7 @@ export default {
 .calendar-year {
   display: flex;
   flex-wrap: wrap;
+  height: 100%;
   width: 100%;
   max-width: 800px;
   justify-content: center

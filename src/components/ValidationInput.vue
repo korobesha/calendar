@@ -1,15 +1,15 @@
 <template>
   <div class="validation-input">
     <div>
-      <label>
-        {{inputName}}
+      <label class="form-label">
+        {{ inputName }}
       </label>
     </div>
     <input  
       type="text" 
       class="form-input"
       v-model="inputValue"
-      :class="{ invalid: isTouched && !this.isDataValid && inputValue }"
+      :class="{ error: isTouched && !this.isDataValid && inputValue }"
       @focus="showError"
       @focusin="showError"
       @focusout="showError"
@@ -49,7 +49,7 @@ export default {
   methods: {
     showError() {
       if (!this.isDataValid && this.isTouched) {
-        this.inputError = 'Неверное значение'
+        this.inputError = 'Invalid data'
       } else {
         return this.inputError = ''
       }
@@ -60,22 +60,29 @@ export default {
 
 <style lang="scss">
 .validation-input {
-  column-gap: 10px;
-}
+  margin-top: 10px;
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: flex-start; 
+  min-width: 190px;
+};
 
 .form-input {
   border: none;
 
+  &.invalidBirthDay {
+    color: red;
+  };
+
   &:focus-visible {
     border: 1px yellow solid;
     outline: none;
-  }
-
-  &.invalid {
-    border: red 1px solid;
   };
+
 };
 .error {
+  margin-top: 2px;
   color: red;
-}
+};
 </style>
