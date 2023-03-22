@@ -4,29 +4,14 @@
       {{ nameOfMonth }}
     </div>
     <div class='month-card-days'>
-      <div class="day" 
-        v-for="weekDay in displayWeekDays" 
-        :key="`weekDay${weekDay}`"
-      >
+      <div class="day" v-for="weekDay in displayWeekDays" :key="`weekDay${weekDay}`">
         {{ weekDay }}
       </div>
-      <div class="day empty-day" 
-        v-for="(emptyDay, i) in emptyDays" 
-        :key="`emptyDay${emptyDay}`"
-      >
+      <div class="day empty-day" v-for="(emptyDay, i) in emptyDays" :key="`emptyDay${emptyDay}`">
         {{ getDayByIndex(emptyDays - i) }}
       </div>
-      <DayCard 
-        class="day"
-        v-for="day in numberOfDays" 
-        :key="day" 
-        :day="day" 
-        :is-it-week-end="checkIsWeekEnd(day)" 
-      />
-      <div class="day empty-day" 
-        v-for="(emptyLastDay, i) in emptyLastDays" 
-        :key="`emptyLastDay${emptyLastDay}`"
-      >
+      <DayCard class="day" v-for="day in numberOfDays" :key="day" :day="day" :is-it-week-end="checkIsWeekEnd(day)" />
+      <div class="day empty-day" v-for="(emptyLastDay, i) in emptyLastDays" :key="`emptyLastDay${emptyLastDay}`">
         {{ getLastDayByIndex(i + 1) }}
       </div>
     </div>
@@ -49,7 +34,7 @@ export default {
     weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
   }),
   computed: {
-    ...mapState (['currentProjectYear']),
+    ...mapState(['currentProjectYear']),
     displayWeekDays() {
       return this.weekDays.map((day) => day.slice(0, 2));
     },
@@ -74,7 +59,7 @@ export default {
       return lastWeekDay ? lastWeekDay : 7
     },
     emptyLastDays() {
-      return 7 - this.lastDayOfMonthWeekDay;
+      return 42 - this.numberOfDays - this.emptyDays;
     },
     firstDayMoment() {
       return moment(this.firstDayOfMonth, 'DD-MM-YYYY');
@@ -113,18 +98,26 @@ export default {
     width: 168px;
     height: 30px;
     font-weight: 300;
-  };
-  
+  }
+
+  ;
+
   &-days {
     display: flex;
     width: 168px;
     flex-wrap: wrap;
-  };
-};
+  }
+
+  ;
+}
+
+;
 
 .empty-day {
   color: #AAA;
-};
+}
+
+;
 
 .day {
   display: flex;
@@ -135,5 +128,7 @@ export default {
   align-content: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-};
+}
+
+;
 </style>

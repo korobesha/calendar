@@ -11,7 +11,7 @@
       <div class="card-content-item">Email: {{ cardInfo.email }}</div>
       <div class="card-content-item">Message: {{ cardInfo.message }}</div>
     </div>
-    <button class="card-button" @click= "$emit('delete-card', cardInfo.order_id)">
+    <button class="card-button" @click="$emit('delete-card', cardInfo.order_id)">
       Delete
     </button>
   </div>
@@ -41,16 +41,23 @@ export default {
   padding: 10px;
   border-radius: 6px;
   background: #cecde0;
-  box-shadow:  -7px 7px 16px #7a7984;
+  box-shadow: -7px 7px 16px #7a7984;
 
   &-content-item {
     margin: 2px;
-  };
+  }
 
   &-content-button {
     height: 20px;
     width: 70px;
     margin: 2px;
-  };
-};
+  }
+
+  &-button {
+    height: 24px;
+    width: 100px;
+    border-radius: 9px;
+    border: 1px solid;
+  }
+}
 </style>

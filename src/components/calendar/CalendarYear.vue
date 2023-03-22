@@ -1,10 +1,6 @@
 <template>
   <div class="calendar-year">
-    <MonthCard 
-      v-for="month in months" 
-      :key="month" 
-      :month="month" 
-    />
+    <MonthCard v-for="month in months" :key="month" :month="month" />
   </div>
 </template>
 
@@ -29,6 +25,9 @@ export default {
   height: 100%;
   width: 100%;
   max-width: 800px;
-  justify-content: center
-};
+  justify-content: center;
+  align-items: center;
+}
+
+;
 </style>

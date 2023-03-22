@@ -1,11 +1,7 @@
 <template>
   <div class="calendar-block">
-    <div class="calendar-block-header">
-      <CalendarHeader />
-    </div>
-    <div class="calendar-block-content">
-      <CalendarYear />
-    </div>  
+    <CalendarHeader />
+    <CalendarYear />
   </div>
 </template>
 
@@ -30,22 +26,10 @@ export default {
 .calendar-block {
   font-family: 'PT Sans', sans-serif;
   background: #F1F2FC;
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: auto;
-
-  &-header {
-    font-size: 18px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &-content {
-    display: flex;
-    justify-content: center;
-    height: auto;
-  }
-
+  justify-content: center;
+  align-items: center;
 }
 </style>
