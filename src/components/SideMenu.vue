@@ -11,7 +11,7 @@
         <router-link class="link" :to="{ name: 'calendar' }">
           Calendar
         </router-link>
-      </li>  
+      </li>
       <li>
         <router-link class="link" :to="{ name: 'weather' }">
           Weather
@@ -21,9 +21,9 @@
         <router-link class="link" :to="{ name: 'main' }">
           Main
         </router-link>
-      </li>  
+      </li>
     </ul>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -38,58 +38,56 @@ export default {
   height: 0;
   width: 0;
 
-  &-list {
-    display: block;
-    position: fixed;
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-    box-sizing: border-box;
-    width: 200px;
-    background-color: #b9b9b9;
-    height: 100%;
-    top: 0;
-    right: -200px;
-    transition-duration: 1s;
-    z-index: 2;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  };
+  & :visited {
+    color: black;
+  }
+}
 
-  &-ticker {
-    display: none;
+.side-menu-list {
+  display: block;
+  position: fixed;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 200px;
+  background-color: #eee;
+  height: 100%;
+  top: 0;
+  right: -200px;
+  transition-duration: 1s;
+  z-index: 2;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 
-    &:checked {
-      ~ .btn-menu{
-        right: 5px;
-      };
-      ~ .side-menu-list {
-        right: 0;
-      };
-      ~ .btn-menu .btn-menu-first {
-        transform: rotate(45deg);
-        top: 8px; 
-      };
-      ~ .btn-menu .btn-menu-second {
-        opacity: 0;
-      };
-      ~ .btn-menu .btn-menu-third {
-        transform: rotate(-45deg);
-        top: -8px;    
-      };
-    };
-  };
-};
-.link {
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  color: black;
-  text-decoration: none;
+&-ticker {
+  display: none;
 
-  &:visited {
-  color: black;
-  };
-};
+  &:checked {
+    ~.btn-menu {
+      right: 5px;
+    }
+
+    ~.side-menu-list {
+      right: 0;
+    }
+
+    ~.btn-menu .btn-menu-first {
+      transform: rotate(45deg);
+      top: 8px;
+    }
+
+    ~.btn-menu .btn-menu-second {
+      opacity: 0;
+    }
+
+    ~.btn-menu .btn-menu-third {
+      transform: rotate(-45deg);
+      top: -8px;
+    }
+  }
+}
 
 .btn-menu {
   color: #fff;
@@ -105,8 +103,9 @@ export default {
   transform: translateZ(0);
   backface-visibility: hidden;
 
-  &-first, &-second, 
-  &-third {
+  .btn-menu-first,
+  .btn-menu-second,
+  .btn-menu-third {
     display: block;
     right: 0;
     height: 3px;
@@ -114,17 +113,10 @@ export default {
     margin: 5px 0 0;
     transition: all .1s linear .1s;
     position: relative;
-  };
-};
+  }
 
-.btn-menu .btn-menu-first {
-  margin-top: 0;
-};
-
-li {
-  &:hover {
-    background-color: cadetblue;
+  .btn-menu .btn-menu-first {
+    margin-top: 0;
   }
 }
-
 </style>

@@ -54,10 +54,6 @@ export default {
     lastDayOfMonth() {
       return `${this.numberOfDays}-${this.month}-${this.currentProjectYear}`;
     },
-    lastDayOfMonthWeekDay() {
-      const lastWeekDay = this.lastDayMoment.day();
-      return lastWeekDay ? lastWeekDay : 7
-    },
     emptyLastDays() {
       return 42 - this.numberOfDays - this.emptyDays;
     },
@@ -100,24 +96,16 @@ export default {
     font-weight: 300;
   }
 
-  ;
-
   &-days {
     display: flex;
     width: 168px;
     flex-wrap: wrap;
   }
-
-  ;
 }
-
-;
 
 .empty-day {
   color: #AAA;
 }
-
-;
 
 .day {
   display: flex;
@@ -129,6 +117,4 @@ export default {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
 }
-
-;
 </style>
