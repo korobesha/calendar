@@ -90,8 +90,4 @@ export default {
     font-weight: 600;
   }
 }
-
-.messageErr {
-  color: red;
-}
 </style>

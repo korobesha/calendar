@@ -46,7 +46,6 @@ export default {
   padding: 2px;
 
   &-block {
-
     display: flex;
     align-items: center;
     gap: 4px;
@@ -71,8 +70,6 @@ export default {
       gap: 5px;
     }
   }
-
-
 
   &-error {
     margin-top: 4px;

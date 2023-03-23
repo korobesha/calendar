@@ -24,7 +24,6 @@
 </template>
 
 <script>
-// import moment from 'moment';
 import ValidationInput from '@/components/base/ValidationInput.vue';
 import ValidationSelect from '@/components/base/ValidationSelect.vue';
 import ValidationDate from '@/components/base/ValidationDate.vue';

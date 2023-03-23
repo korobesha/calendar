@@ -58,7 +58,6 @@ export default {
 
 <style lang="scss">
 .validation-input {
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
