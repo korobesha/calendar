@@ -1,9 +1,14 @@
 <template>
   <div class="validation-textarea">
     <label class="validation-textarea-label">
-      {{ name }}
+      {{ title }}
     </label>
-    <textarea class="validation-textarea-block" v-model="message" @input="onChangeText"></textarea>
+    <textarea
+      :class="['validation-textarea-block', { 'validation-textarea-block__error': symbolsError, 'validation-textarea-block__success': this.value && !symbolsError }]"
+      v-model="message" @input="onChangeText" @blur="onBlur" @focus="onFocus"></textarea>
+    <div v-if="symbolsError" class="validation-textarea-error">
+      {{ symbolsError }}
+    </div>
   </div>
 </template>
 
@@ -12,20 +17,32 @@
 export default {
   name: 'ValidationTextarea',
   data: () => ({
-    name: 'message',
     message: '',
+    symbolsError: '',
   }),
   props: {
     value: String,
+    title: String,
   },
   mounted() {
     this.message = this.value
   },
   methods: {
+    onBlur() {
+      if (this.symbols) this.symbolsError = 'Invalid symbols';
+    },
+    onFocus() {
+      this.symbolsError = '';
+    },
     onChangeText() {
-      this.$emit('input', this.message)
-    }
+      this.$emit('input', this.message);
+    },
   },
+  computed: {
+    symbols() {
+      return this.message && /[§~&%]/.test(this.message)
+    }
+  }
 }
 </script>
 
@@ -56,6 +73,25 @@ export default {
     border: 1px solid #fff;
     outline: none;
     padding: 8px 8px;
+
+    &__error {
+      border: 1px solid red;
+    }
+
+    &__success {
+      border: 1px solid green;
+    }
   }
+
+  &-error {
+    margin-top: 4px;
+    color: red;
+    font-size: 10px;
+    font-weight: 600;
+  }
+}
+
+.messageErr {
+  color: red;
 }
 </style>

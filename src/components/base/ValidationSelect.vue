@@ -1,11 +1,10 @@
 <template>
   <div class="validation-select">
     <label class="validation-select-label">
-      {{ name }}
+      {{ title }}
     </label>
     <select class="validation-select-block" v-model="gender" @change="onSelectGender">
-      <option>Female</option>
-      <option>Male</option>
+      <option v-for="variant in variants" :key="variant.value">{{ variant.label }}</option>
     </select>
   </div>
 </template>
@@ -15,9 +14,20 @@ export default {
   name: 'ValidationSelect',
   props: {
     value: String,
+    title: String
   },
   data: () => ({
     name: 'gender',
+    variants: [
+      {
+        value: 'male',
+        label: 'Male'
+      },
+      {
+        value: 'female',
+        label: 'Female'
+      }
+    ],
     gender: 'Male',
   }),
   mounted() {

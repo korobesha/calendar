@@ -11,10 +11,11 @@
       </div>
       <ValidationInput v-for="inputName in inputNames" :key="inputName" :inputName="inputName"
         v-model="formData[inputName]" @check-valid="valid => formDataValidFlags[inputName] = valid" />
-      <ValidationSelect v-model="formData.gender" />
-      <ValidationDate v-model="formData.birthday" @is-invalid="date => formDataValidFlags.birthday = date" />
+      <ValidationSelect v-model="formData.gender" :title="names[0]" />
+      <ValidationDate v-model="formData.birthday" @is-invalid="date => formDataValidFlags.birthday = !date"
+        :title="names[1]" />
       <ValidationCheckbox v-model="formData.agreement" @input="toggle => formDataValidFlags.agreement = toggle" />
-      <ValidationTextarea v-model="formData.message" />
+      <ValidationTextarea v-model="formData.message" :title="names[2]" />
       <button class="feedback-form-button" type="submit" :disabled="!isValid">
         Send
       </button>
@@ -34,6 +35,7 @@ import { mapMutations, mapState } from 'vuex';
 export default {
   name: 'FeedbackForm',
   data: () => ({
+    names: ['gender', 'birthday', 'message'],
     inputNames: [
       'name', 'surname', 'phone', 'email'
     ],
@@ -82,7 +84,7 @@ export default {
       for (let order of this.orderForms) {
         maxCount = order.order_id > maxCount ? order.order_id : maxCount
       }
-        return maxCount + 1;
+      return maxCount + 1;
     },
     submit() {
       this.$emit('close-modal');

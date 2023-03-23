@@ -1,12 +1,12 @@
 <template>
   <div class="validation-date">
     <label class="validation-date-label">
-      {{ name }}
+      {{ title }}
     </label>
     <input required type="date" max="2023-01-01" :class="['validation-date-block', {
-      'validation-date-block__success': dateValid,
+      'validation-date-block__success': !birthErr && value,
       'validation-date-block__error': birthErr
-    }]" v-model="birthday" @input="checkBirthDate" @blur="onBlur" @focus="onFocus" />
+    }]" v-model="birthday" @blur="onBlur" @focus="onFocus" />
     <div v-if="birthErr" class="validation-date-block-error">
       {{ birthErr }}
     </div>
@@ -20,11 +20,10 @@ export default {
   name: 'ValidationDate',
   props: {
     value: String,
+    title: String,
   },
   data: () => ({
-    name: "birthday",
-    dateValid: false,
-    birthErr: '',
+    birthErr: false,
   }),
   computed: {
     birthday: {
@@ -38,12 +37,12 @@ export default {
   },
   methods: {
     onBlur() {
-      let validation = moment().diff(moment(this.value, 'YYYY-MM-DD').add(18, 'years'), 'days') <= 0;
-      let validation2 = moment(this.value, 'YYYY_MM_DD').isBefore('1923-01-01');
-      let validation3 = moment(this.value, 'YYYY_MM_DD').isAfter('2023-01-01');
-      this.dateValid = !(validation || validation2 || validation3);
-      if (!this.dateValid) this.birthErr = 'Invalid data';
-      this.$emit('is-invalid', this.dateValid);
+      const isTeen = moment().diff(moment(this.value, 'YYYY-MM-DD').add(18, 'years'), 'days') <= 0;
+      const isMaxValue = moment(this.value, 'YYYY_MM_DD').isBefore('1923-01-01');
+      const isMinValue = moment(this.value, 'YYYY_MM_DD').isAfter('2023-01-01');
+      this.birthErr = (isTeen || isMaxValue || isMinValue);
+      if (this.birthErr) this.birthErr = 'Invalid data';
+      this.$emit('is-invalid', this.birthErr);
     },
     onFocus() {
       this.birthErr = '';
