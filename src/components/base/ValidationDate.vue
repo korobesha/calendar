@@ -6,7 +6,7 @@
     <input required type="date" max="2023-01-01" :class="['validation-date-block', {
       'validation-date-block__success': dateValid,
       'validation-date-block__error': birthErr
-    }]" v-model="birthday" @change="checkBirthDate" @blur="onBlur" @focus="onFocus" />
+    }]" v-model="birthday" @input="checkBirthDate" @blur="onBlur" @focus="onFocus" />
     <div v-if="birthErr" class="validation-date-block-error">
       {{ birthErr }}
     </div>
@@ -23,7 +23,6 @@ export default {
   },
   data: () => ({
     name: "birthday",
-    isDateValid: false,
     dateValid: false,
     birthErr: '',
   }),
@@ -33,26 +32,21 @@ export default {
         return this.value;
       },
       set(newValue) {
-        this.isTouched = true;
         this.$emit('input', newValue);
-        this.isDateValid = newValue && !!this.birthErr
-        this.$emit('checkdate', !!this.birthErr);
       },
     },
   },
   methods: {
     onBlur() {
+      let validation = moment().diff(moment(this.value, 'YYYY-MM-DD').add(18, 'years'), 'days') <= 0;
+      let validation2 = moment(this.value, 'YYYY_MM_DD').isBefore('1923-01-01');
+      let validation3 = moment(this.value, 'YYYY_MM_DD').isAfter('2023-01-01');
+      this.dateValid = !(validation || validation2 || validation3);
       if (!this.dateValid) this.birthErr = 'Invalid data';
+      this.$emit('is-invalid', this.dateValid);
     },
     onFocus() {
       this.birthErr = '';
-    },
-    checkBirthDate(event) {
-      if ((moment().diff(moment(event.target.value, 'YYYY-MM-DD').add(18, 'years'), 'days') <= 1 || moment(event.target.value, 'YYYY_MM_DD').isBefore('1923-01-01') || moment(event.target.value, 'YYYY_MM_DD').isAfter('2023-01-01'))) {
-        this.dateValid = false
-      } else {
-        this.dateValid = true
-      }
     },
   }
 }

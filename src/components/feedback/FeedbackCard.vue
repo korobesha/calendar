@@ -62,7 +62,6 @@ export default {
     }
   }
 
-
   &-button {
     font-size: 12px;
     height: 16px;

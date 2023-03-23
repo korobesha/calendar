@@ -21,8 +21,6 @@ export default {
   },
   data: () => ({
     name: 'agreement',
-    toggle: false,
-    isTouched: true,
     err: '',
   }),
   mounted() {
@@ -31,13 +29,7 @@ export default {
   methods: {
     onChangeCheckbox() {
       this.$emit('input', this.toggle);
-      this.isTouched = !this.isTouched;
-      this.$emit('checking', !!this.toggle);
-      if (this.value && this.isTouched) {
-        this.err = 'Need to accept the agreement'
-      } else {
-        return this.err = ''
-      }
+      this.err = this.toggle ? '' : 'Need to accept the agreement'
     },
   },
 }

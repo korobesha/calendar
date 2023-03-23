@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="modal-form" @click="$emit('close-modal')"></div>
+  <div class="modal">
+    <div class="modal-overlay" @click="$emit('close-modal')"></div>
     <form id="feedBack" name="feedBack" class="feedback-form" @submit.prevent="submit">
       <div class="feedback-form-close" @click="$emit('close-modal')">
         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000">
@@ -12,8 +12,8 @@
       <ValidationInput v-for="inputName in inputNames" :key="inputName" :inputName="inputName"
         v-model="formData[inputName]" @check-valid="valid => formDataValidFlags[inputName] = valid" />
       <ValidationSelect v-model="formData.gender" />
-      <ValidationDate v-model="formData.birthday" @input="checkBirthDate" />
-      <ValidationCheckbox v-model="formData.agreement" @checking="toggle => formDataValidFlags.agreement = toggle" />
+      <ValidationDate v-model="formData.birthday" @is-invalid="date => formDataValidFlags.birthday = date" />
+      <ValidationCheckbox v-model="formData.agreement" @input="toggle => formDataValidFlags.agreement = toggle" />
       <ValidationTextarea v-model="formData.message" />
       <button class="feedback-form-button" type="submit" :disabled="!isValid">
         Send
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+// import moment from 'moment';
 import ValidationInput from '@/components/base/ValidationInput.vue';
 import ValidationSelect from '@/components/base/ValidationSelect.vue';
 import ValidationDate from '@/components/base/ValidationDate.vue';
@@ -75,14 +75,6 @@ export default {
     ...mapMutations({
       setFeedBack: 'SET_FEED_BACK',
     }),
-    checkBirthDate() {
-      const validation = moment().diff(moment(this.formData.birthday, 'YYYY-MM-DD').add(18, 'years'), 'days') <= 1 || moment(this.formData.birthday, 'YYYY_MM_DD').isBefore('1923-01-01') || moment(this.formData.birthday, 'YYYY_MM_DD').isAfter('2023-01-01')
-      if (validation) {
-        this.formDataValidFlags.birthday = false
-      } else {
-        this.formDataValidFlags.birthday = true
-      }
-    },
     getOrderNumber() {
       if (!this.orderForms.length)
         return 1
@@ -90,7 +82,7 @@ export default {
       for (let order of this.orderForms) {
         maxCount = order.order_id > maxCount ? order.order_id : maxCount
       }
-      return maxCount + 1;
+        return maxCount + 1;
     },
     submit() {
       this.$emit('close-modal');
@@ -107,7 +99,7 @@ export default {
 </script>
 
 <style lang="scss">
-.modal-form {
+.modal-overlay {
   z-index: 4;
   position: fixed;
   top: 0;

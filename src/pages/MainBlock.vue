@@ -6,7 +6,7 @@
     <div class="main-block-header">
       Orders
     </div>
-    <div class="main-block-content" v-if="isAnyCards">
+    <div class="main-block-content" v-if="orderForms.length">
       <FeedbackCard v-for="(card, i) in orderForms" :key="i + 1" :card-info="card" @delete-card="deleteOrder" />
     </div>
     <p v-else> No order</p>
@@ -31,17 +31,12 @@ export default {
   },
   computed: {
     ...mapState(['orderForms']),
-    isAnyCards() {
-      return !!this.orderForms.length;
-    },
+
   },
   methods: {
     ...mapMutations({
       deleteOrder: 'DELETE_ORDER',
     }),
-  },
-  closeModal() {
-    this.showModal = false;
   },
 }
 </script>

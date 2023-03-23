@@ -38,54 +38,58 @@ export default {
   height: 0;
   width: 0;
 
-  & :visited {
-    color: black;
+  &-list {
+    display: block;
+    position: fixed;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    width: 200px;
+    background-color: #eee;
+    height: 100%;
+    top: 0;
+    right: -200px;
+    transition-duration: 1s;
+    z-index: 2;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    &>li {
+      width: 100%;
+    }
   }
-}
 
-.side-menu-list {
-  display: block;
-  position: fixed;
-  list-style: none;
-  padding: 10px;
-  margin: 0;
-  box-sizing: border-box;
-  width: 200px;
-  background-color: #eee;
-  height: 100%;
-  top: 0;
-  right: -200px;
-  transition-duration: 1s;
-  z-index: 2;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
+  &-ticker {
+    display: none;
 
-.side-menu-ticker {
-  display: none;
+    &:checked {
+      ~.btn-menu {
+        right: 5px;
+      }
 
-  &:checked {
-    ~.btn-menu {
-      right: 5px;
+      ~.side-menu-list {
+        right: 0;
+      }
+
+      ~.btn-menu .btn-menu-first {
+        transform: rotate(45deg);
+        top: 8px;
+      }
+
+      ~.btn-menu .btn-menu-second {
+        opacity: 0;
+      }
+
+      ~.btn-menu .btn-menu-third {
+        transform: rotate(-45deg);
+        top: -8px;
+      }
     }
+  }
 
-    ~.side-menu-list {
-      right: 0;
-    }
-
-    ~.btn-menu .btn-menu-first {
-      transform: rotate(45deg);
-      top: 8px;
-    }
-
-    ~.btn-menu .btn-menu-second {
-      opacity: 0;
-    }
-
-    ~.btn-menu .btn-menu-third {
-      transform: rotate(-45deg);
-      top: -8px;
-    }
+  &:visited {
+    color: black;
   }
 }
 
@@ -103,9 +107,9 @@ export default {
   transform: translateZ(0);
   backface-visibility: hidden;
 
-  .btn-menu-first,
-  .btn-menu-second,
-  .btn-menu-third {
+  &-first,
+  &-second,
+  &-third {
     display: block;
     right: 0;
     height: 3px;
@@ -115,8 +119,18 @@ export default {
     position: relative;
   }
 
-  .btn-menu .btn-menu-first {
+  &-first {
     margin-top: 0;
+  }
+}
+
+.link {
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+
+  &:visited {
+    color: black;
   }
 }
 </style>

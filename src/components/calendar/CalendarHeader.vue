@@ -1,14 +1,12 @@
 <template>
-    <div class="calendar-header">
-      <div class="calendar-header-block">
-        {{ currentProjectYear }}
-      </div>
-      <ToggleBlock 
-        @toggle="setCurrentProjectYear" 
-        :is-disabled-min-button="currentProjectYear < new Date().getFullYear() - 4" 
-        :is-disabled-max-button="currentProjectYear > new Date().getFullYear()"
-      />
+  <div class="calendar-header">
+    <div class="calendar-header-block">
+      {{ currentProjectYear }}
     </div>
+    <ToggleBlock @toggle="setCurrentProjectYear"
+      :is-disabled-min-button="currentProjectYear < new Date().getFullYear() - 4"
+      :is-disabled-max-button="currentProjectYear > new Date().getFullYear()" />
+  </div>
 </template>
 
 <script>
@@ -21,7 +19,7 @@ export default {
     ToggleBlock,
   },
   computed: {
-    ...mapState (['currentProjectYear',])
+    ...mapState(['currentProjectYear',])
   },
   methods: {
     ...mapMutations({
@@ -33,7 +31,7 @@ export default {
 
 <style lang="scss">
 .calendar-header {
-  display:flex;
+  display: flex;
   align-items: center;
-};
+}
 </style>
