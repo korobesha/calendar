@@ -3,7 +3,7 @@
     <label class="validation-date-label">
       {{ name }}
     </label>
-    <input required type="date" placeholder="" :class="['validation-date-block', {
+    <input required type="date" max="2023-01-01" :class="['validation-date-block', {
       'validation-date-block__success': dateValid,
       'validation-date-block__error': birthErr
     }]" v-model="birthday" @change="checkBirthDate" @blur="onBlur" @focus="onFocus" />
@@ -61,7 +61,7 @@ export default {
 <style lang="scss">
 .validation-date {
 
-  margin-top: 10px;
+  margin-top: 6px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -75,6 +75,7 @@ export default {
     border-radius: 5px;
     font-weight: 600;
     font-size: 12px;
+    height: 20px;
   }
 
   &-block {

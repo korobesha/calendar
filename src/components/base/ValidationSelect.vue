@@ -1,42 +1,46 @@
 <template>
-  <div class="validation-textarea">
-    <label class="validation-textarea-label">
+  <div class="validation-select">
+    <label class="validation-select-label">
       {{ name }}
     </label>
-    <textarea class="validation-textarea-block" v-model="message" @input="onChangeText"></textarea>
+    <select class="validation-select-block" v-model="gender" @change="onSelectGender">
+      <option>Female</option>
+      <option>Male</option>
+    </select>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'ValidationTextarea',
-  data: () => ({
-    name: 'message',
-    message: '',
-  }),
+  name: 'ValidationSelect',
   props: {
     value: String,
   },
+  data: () => ({
+    name: 'gender',
+    gender: 'Male',
+  }),
   mounted() {
-    this.message = this.value
+    this.gender = this.value;
   },
   methods: {
-    onChangeText() {
-      this.$emit('input', this.message)
+    onSelectGender() {
+      this.$emit('input', this.gender)
     }
   },
 }
 </script>
 
 <style lang="scss">
-.validation-textarea {
-  margin-top: 10px;
+.validation-select {
+
+  margin-top: 6px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   min-width: 190px;
+  width: 100%;
   padding: 2px;
 
   &-label {
@@ -45,6 +49,7 @@ export default {
     border-radius: 5px;
     font-weight: 600;
     font-size: 12px;
+    height: 20px;
   }
 
   &-block {
@@ -54,6 +59,7 @@ export default {
     border: 1px solid #fff;
     outline: none;
     padding: 0 8px;
+    box-sizing: content-box;
   }
 }
 </style>

@@ -61,7 +61,7 @@ export default {
   backface-visibility: hidden;
 }
 
-&-ticker {
+.side-menu-ticker {
   display: none;
 
   &:checked {

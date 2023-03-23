@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss">
 .validation-input {
-  margin-top: 10px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -66,12 +66,17 @@ export default {
   min-width: 190px;
   padding: 2px;
 
+  &:not(:first-child) {
+    margin-top: 6px;
+  }
+
   &-label {
     text-transform: capitalize;
     align-self: flex-start;
     border-radius: 5px;
     font-weight: 600;
     font-size: 12px;
+    height: 20px;
   }
 
   &-field {

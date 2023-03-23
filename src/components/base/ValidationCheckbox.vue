@@ -1,6 +1,6 @@
 <template>
   <div class="validation-checkbox">
-    <div>
+    <div style="display:flex; align-items: center;gap: 4px;">
       <input type="checkbox" name="agreement" class="validation-checkbox-block" v-model="toggle"
         @change="onChangeCheckbox" />
       <label class="validation-checkbox-label">
@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss">
 .validation-checkbox {
-  margin-top: 10px;
+  margin-top: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,11 +61,16 @@ export default {
     width: 100%;
     font-weight: 600;
     font-size: 12px;
+    height: 20px;
+    align-items: center;
+    display: flex;
   }
 
   &-block {
     border: none;
     outline: none;
+    height: 20px;
+    gap: 5px;
   }
 
   &-error {

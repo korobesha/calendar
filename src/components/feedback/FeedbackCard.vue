@@ -36,28 +36,41 @@ export default {
   margin: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 10px;
   border-radius: 6px;
   background: #cecde0;
   box-shadow: -7px 7px 16px #7a7984;
 
-  &-content-item {
+  &-owner {
     margin: 2px;
+    font-size: 16px;
+    font-weight: 700;
   }
 
-  &-content-button {
-    height: 20px;
-    width: 70px;
-    margin: 2px;
+  &-content {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+
+    &-item {
+      margin: 2px;
+      font-size: 12px;
+    }
   }
+
 
   &-button {
-    height: 24px;
+    font-size: 12px;
+    height: 16px;
     width: 100px;
-    border-radius: 9px;
+    border-radius: 6px;
     border: 1px solid;
+    background-color: #ffffff;
+    cursor: pointer;
   }
 }
 </style>

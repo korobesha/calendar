@@ -93,7 +93,8 @@ export default {
     height: 30px;
     width: 150px;
     align-self: center;
-    justify-self: center
+    justify-self: center;
+    cursor: pointer;
   }
 }
 </style>
