@@ -11,11 +11,11 @@
       </div>
       <ValidationInput v-for="inputName in inputNames" :key="inputName" :inputName="inputName"
         v-model="formData[inputName]" @check-valid="valid => formDataValidFlags[inputName] = valid" />
-      <ValidationSelect v-model="formData.gender" :title="names[0]" />
+      <ValidationSelect v-model="formData.gender" :title="'gender'" />
       <ValidationDate v-model="formData.birthday" @is-invalid="date => formDataValidFlags.birthday = !date"
-        :title="names[1]" />
+        :title="'birthday'" />
       <ValidationCheckbox v-model="formData.agreement" @input="toggle => formDataValidFlags.agreement = toggle" />
-      <ValidationTextarea v-model="formData.message" :title="names[2]" />
+      <ValidationTextarea v-model="formData.message" :title="'message'" />
       <button class="feedback-form-button" type="submit" :disabled="!isValid">
         Send
       </button>
@@ -34,7 +34,7 @@ import { mapMutations, mapState } from 'vuex';
 export default {
   name: 'FeedbackForm',
   data: () => ({
-    names: ['gender', 'birthday', 'message'],
+
     inputNames: [
       'name', 'surname', 'phone', 'email'
     ],
@@ -68,7 +68,7 @@ export default {
     ...mapState(['orderForms']),
     isValid() {
       return Object.values(this.formDataValidFlags).every(
-        (field) => field === true
+        field => field
       );
     },
   },

@@ -21,7 +21,7 @@ export default {
   },
   data: () => ({
     err: '',
-    toggle: ''
+    toggle: false
   }),
   mounted() {
     this.toggle = this.value;

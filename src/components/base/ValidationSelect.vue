@@ -4,7 +4,7 @@
       {{ title }}
     </label>
     <select class="validation-select-block" v-model="gender" @change="onSelectGender">
-      <option v-for="variant in variants" :key="variant.value">{{ variant.label }}</option>
+      <option v-for="option in options" :key="option.label">{{ option.value }}</option>
     </select>
   </div>
 </template>
@@ -18,14 +18,14 @@ export default {
   },
   data: () => ({
     name: 'gender',
-    variants: [
+    options: [
       {
         value: 'male',
-        label: 'Male'
+        label: 'male'
       },
       {
         value: 'female',
-        label: 'Female'
+        label: 'female'
       }
     ],
     gender: 'Male',
@@ -69,6 +69,7 @@ export default {
     outline: none;
     padding: 0 8px;
     box-sizing: content-box;
+    text-transform: capitalize;
   }
 }
 </style>
