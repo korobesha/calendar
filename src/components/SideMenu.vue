@@ -55,7 +55,7 @@ export default {
     transform: translateZ(0);
     backface-visibility: hidden;
 
-    &>li {
+    & > li {
       width: 100%;
     }
   }
@@ -64,24 +64,24 @@ export default {
     display: none;
 
     &:checked {
-      ~.btn-menu {
+      ~ .btn-menu {
         right: 5px;
       }
 
-      ~.side-menu-list {
+      ~ .side-menu-list {
         right: 0;
       }
 
-      ~.btn-menu .btn-menu-first {
+      ~ .btn-menu .btn-menu-first {
         transform: rotate(45deg);
         top: 8px;
       }
 
-      ~.btn-menu .btn-menu-second {
+      ~ .btn-menu .btn-menu-second {
         opacity: 0;
       }
 
-      ~.btn-menu .btn-menu-third {
+      ~ .btn-menu .btn-menu-third {
         transform: rotate(-45deg);
         top: -8px;
       }
