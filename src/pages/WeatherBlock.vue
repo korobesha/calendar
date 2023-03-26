@@ -1,18 +1,11 @@
 <template>
-  <div>
-
-  </div>
+  <div>weather</div>
 </template>
 
 <script>
-
 export default {
-  name: 'WeatherBlock',
-}
-
+  name: "WeatherBlock",
+};
 </script>
 
-<style lang="scss">
-
-
-</style>
+<style lang="scss"></style>
