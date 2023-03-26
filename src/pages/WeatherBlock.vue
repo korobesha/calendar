@@ -8,13 +8,6 @@
 
 export default {
   name: 'WeatherBlock',
-  data: () => ({
-    name: '',
-  }),
-  props: {
-  },
-  components: {
-  },
 }
 
 </script>
