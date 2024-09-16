@@ -14,7 +14,6 @@ let router = new Router({
       path: "/calendar",
       name: "calendar",
       component: CalendarBlock,
-      props: true,
     },
     {
       path: "/weather",

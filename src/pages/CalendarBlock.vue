@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-block">
-    <CalendarHeader class="calendar-block-header" />
+    <CalendarHeader />
     <CalendarYear />
   </div>
 </template>
@@ -9,12 +9,13 @@
 import CalendarYear from '@/components/calendar/CalendarYear.vue';
 import CalendarHeader from '@/components/calendar/CalendarHeader.vue';
 
+
 export default {
   name: 'CalendarBlock',
   components: {
     CalendarYear,
-    CalendarHeader,
-  }, 
+    CalendarHeader
+  },
 }
 </script>
 
@@ -25,11 +26,10 @@ export default {
 .calendar-block {
   font-family: 'PT Sans', sans-serif;
   background: #F1F2FC;
-  height: 100%;
-
-  &-header {
-    font-size: 18px;
-    padding: 20px;
-  };
-};
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
 </style>

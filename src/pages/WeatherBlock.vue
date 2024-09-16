@@ -1,16 +1,11 @@
 <template>
-  <div>
-    weather
-  </div>
+  <div>weather</div>
 </template>
 
 <script>
-
 export default {
-  name: 'WeatherBlock',
-  components: {
-  },
-}
+  name: "WeatherBlock",
+};
 </script>
 
-<style></style>
+<style lang="scss"></style>

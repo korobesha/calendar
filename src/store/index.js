@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     currentProjectYear: new Date().getFullYear(),
+    orderForms: [],
   },
   mutations: {
     SET_CURRENT_YEAR(state, increment) {
@@ -14,8 +15,18 @@ const store = new Vuex.Store({
           ? new Date().getFullYear()
           : state.currentProjectYear + increment;
     },
+    SET_FEED_BACK(state, order) {
+      state.orderForms.push(order);
+    },
+    DELETE_ORDER(state, orderId) {
+      const deleteId = state.orderForms.findIndex(
+        (order) => order.order_id === orderId
+      );
+      state.orderForms.splice(deleteId, 1);
+    },
   },
   getters: {},
   actions: {},
 });
+
 export default store;

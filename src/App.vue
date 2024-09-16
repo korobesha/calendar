@@ -7,17 +7,11 @@
 
 <script>
 import SideMenu from './components/SideMenu.vue';
+
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    SideMenu
+    SideMenu 
   },
 }
 </script>
-
-<style>
-#app {
-  height: 100%;
-  width: 100%;
-}
-</style>
